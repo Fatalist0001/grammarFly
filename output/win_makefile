@@ -1,0 +1,25 @@
+all: main.exe
+
+clean:
+    del *.obj /s
+    del *.exe /s
+    del sourcefiles.txt
+
+main.obj: win_makefile
+    cl /c /EHsc /I. -I"D:\VScode_pr\grammarFly\.venv\Library\include" /Ox /w /arch:AVX2 /MP  main.cpp /Fomain.obj 
+    
+network.obj: win_makefile
+    cl /c /EHsc /I. -I"D:\VScode_pr\grammarFly\.venv\Library\include" /Ox /w /arch:AVX2 /MP  network.cpp /Fonetwork.obj 
+    
+objects.obj: win_makefile
+    cl /c /EHsc /I. -I"D:\VScode_pr\grammarFly\.venv\Library\include" /Ox /w /arch:AVX2 /MP  objects.cpp /Foobjects.obj 
+    
+run.obj: win_makefile
+    cl /c /EHsc /I. -I"D:\VScode_pr\grammarFly\.venv\Library\include" /Ox /w /arch:AVX2 /MP  run.cpp /Forun.obj 
+    
+synapses_classes.obj: win_makefile
+    cl /c /EHsc /I. -I"D:\VScode_pr\grammarFly\.venv\Library\include" /Ox /w /arch:AVX2 /MP  synapses_classes.cpp /Fosynapses_classes.obj 
+    
+
+main.exe: main.obj network.obj objects.obj run.obj synapses_classes.obj  win_makefile sourcefiles.txt
+    link @sourcefiles.txt /LIBPATH:"D:\VScode_pr\grammarFly\.venv\Library\lib" advapi32.lib /LIBPATH:. /OUT:main.exe 

@@ -1,0 +1,1 @@
+main network objects run synapses_classes

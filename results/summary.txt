@@ -1,0 +1,10 @@
+seed 0
+  base_acc=0.143
+  final_acc=0.143
+  per_n={4: 1.0, 5: 1.0, 6: 1.0}
+
+seed 1
+  base_acc=0.143
+  final_acc=0.143
+  per_n={4: 1.0, 5: 1.0, 6: 1.0}
+
