@@ -1,0 +1,16 @@
+[project]
+name = "grammarfly"
+version = "0.1.0"
+description = "grammarFly — обучение грамматике A^nB^n на connectome Drosophila (MaleCNS)"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "brian2>=2.9.0",
+    "networkx>=3.6.1",
+    "neuprint-python>=0.6.3",
+    "numpy<2",
+    "pandas>=3.0.5",
+    "scipy>=1.17.1",
+]
+
+[tool.uv]
+package = false
