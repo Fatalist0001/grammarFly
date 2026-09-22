@@ -17,6 +17,18 @@ class MaleCNSGraph:
         self.instances = self.nodes["instance"].fillna("").to_numpy()
         self.idx = {int(b): i for i, b in enumerate(self.body_ids)}
 
+        self.nt = {}
+        nt_path = f"{base_dir}/nt.csv"
+        if os.path.exists(nt_path):
+            nt_df = pd.read_csv(nt_path)
+            for _, row in nt_df.iterrows():
+                nt = str(row.get("consensusNt", ""))
+                if not nt or nt == "nan":
+                    nt = str(row.get("predictedNt", ""))
+                if not nt or nt == "nan":
+                    nt = "unclear"
+                self.nt[int(row["bodyId"])] = nt
+
         self.pairs = (
             self.edges
             .groupby(["bodyId_pre", "bodyId_post"], as_index=False)["weight"]
@@ -48,11 +60,19 @@ class MaleCNSGraph:
         rng.shuffle(kc)
         return np.array(kc[:n]), np.array(kc[n:2 * n])
 
-    def inh_mask(self):
-        pre = self.pairs["bodyId_pre"].to_numpy()
+    def inh_mask(self, inhibitory_nt=("gaba",)):
+        """Boolean array over self.pairs rows: True if the PRE neuron releases an
+        inhibitory neurotransmitter (default: gaba). Falls back to APL-only
+        masking when no NT data is present."""
+        pre_body = self.pairs["bodyId_pre"].to_numpy()
+        if self.nt:
+            return np.array([
+                self.nt.get(int(b), "unclear") in inhibitory_nt
+                for b in pre_body
+            ], dtype=bool)
         return np.array([
             isinstance(t, str) and t.startswith("APL")
-            for t in self.types[[self.idx[int(b)] for b in pre]]
+            for t in self.types[[self.idx[int(b)] for b in pre_body]]
         ])
 
     def mbon_indices(self):
@@ -93,10 +113,7 @@ class MaleCNSGraph:
               **lif_kwargs):
         pre = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
         post = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
-        inh = np.array([
-            str(t).startswith("APL") if isinstance(t, str) else False
-            for t in self.types[pre]
-        ])
+        inh = self.inh_mask()
         weights = self.pairs["weight"].to_numpy() * w_scale
         if inh.any():
             weights[inh] = weights[inh] * inh_scale
