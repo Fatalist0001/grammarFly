@@ -1,6 +1,6 @@
-"""Download predictedNeurotransmitter info for the MB-right-lobe subgraph.
+"""Download predictedNeurotransmitter info for a local subgraph.
 
-Writes data/malecns_mbRlobes/nt.csv (bodyId, predictedNt, predictedNtConfidence,
+Writes <base_dir>/nt.csv (bodyId, predictedNt, predictedNtConfidence,
 consensusNt, status) and prints a distribution summary. Requires network access
 to neuprint.janelia.org and a token in .env.
 """
@@ -22,17 +22,16 @@ def load_auth():
     raise RuntimeError("AUTH not found in .env")
 
 
-if __name__ == "__main__":
-    client = Client("https://neuprint.janelia.org",
-                    dataset="male-cns:v1.0", token=load_auth())
-    nodes = pd.read_csv(NODES)
+def fetch_to(base_dir, nodes_name="nodes.csv", nt_name="nt.csv"):
+    nodes = pd.read_csv(os.path.join(base_dir, nodes_name))
     ids = sorted(int(b) for b in nodes["bodyId"])
     print(f"fetching predictedNt for {len(ids)} neurons...")
     neurons, _ = fetch_neurons(ids, client=client)
     keep = neurons[["bodyId", "predictedNt", "predictedNtConfidence",
                     "consensusNt", "status", "statusLabel"]].copy()
-    keep.to_csv(OUT, index=False)
-    print(f"saved -> {OUT} ({len(keep)} rows)")
+    out = os.path.join(base_dir, nt_name)
+    keep.to_csv(out, index=False)
+    print(f"saved -> {out} ({len(keep)} rows)")
 
     nt = neurons["predictedNt"].fillna("(none)")
     print("\npredictedNt distribution (neuron-level):")
@@ -42,3 +41,10 @@ if __name__ == "__main__":
         print(f"\nconfidence: n={len(conf)} mean={conf.mean():.3f} min={conf.min():.3f} max={conf.max():.3f}")
     missing = nt.eq("(none)").sum()
     print(f"missing predictedNt: {missing}/{len(neurons)}")
+
+
+if __name__ == "__main__":
+    client = Client("https://neuprint.janelia.org",
+                    dataset="male-cns:v1.0", token=load_auth())
+    fetch_to("data/malecns_mbRlobes")
+    fetch_to("data/malecns_eb")

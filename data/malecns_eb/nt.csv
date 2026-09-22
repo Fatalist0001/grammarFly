@@ -1,0 +1,667 @@
+bodyId,predictedNt,predictedNtConfidence,consensusNt,status,statusLabel
+10043,gaba,0.7735083103179932,gaba,Traced,Prelim Roughly traced
+10044,acetylcholine,0.9461774826049805,acetylcholine,Traced,Roughly traced
+10099,glutamate,0.6413229703903198,glutamate,Traced,Roughly traced
+10285,acetylcholine,0.9217644929885864,acetylcholine,Traced,Roughly traced
+10299,gaba,0.73284912109375,gaba,Traced,Roughly traced
+10324,acetylcholine,0.7620134949684143,acetylcholine,Traced,Roughly traced
+10328,acetylcholine,0.8855127096176147,acetylcholine,Traced,Roughly traced
+10342,unclear,0.3552362620830536,unclear,Traced,Roughly traced
+10539,acetylcholine,0.897758424282074,acetylcholine,Traced,Roughly traced
+10568,dopamine,0.7614812850952148,dopamine,Traced,Roughly traced
+10599,acetylcholine,0.9493823051452637,acetylcholine,Traced,Roughly traced
+10624,glutamate,0.6903765797615051,glutamate,Traced,Roughly traced
+10804,gaba,0.8264175653457642,gaba,Traced,Roughly traced
+10969,glutamate,0.6249966621398926,glutamate,Traced,Roughly traced
+11115,acetylcholine,0.9464319348335266,acetylcholine,Traced,Roughly traced
+11255,dopamine,0.6496465802192688,dopamine,Traced,Roughly traced
+11307,acetylcholine,0.884657621383667,acetylcholine,Traced,Roughly traced
+11326,glutamate,0.698763906955719,glutamate,Traced,Roughly traced
+11340,acetylcholine,0.8161904811859131,acetylcholine,Traced,Roughly traced
+11433,acetylcholine,0.7281224727630615,acetylcholine,Traced,Roughly traced
+11490,glutamate,0.5475167036056519,glutamate,Traced,Roughly traced
+11503,acetylcholine,0.8918434977531433,acetylcholine,Traced,Roughly traced
+11605,gaba,0.7638171315193176,gaba,Traced,Prelim Roughly traced
+11618,dopamine,0.6580363512039185,dopamine,Traced,Roughly traced
+11874,acetylcholine,0.9270044565200806,acetylcholine,Traced,Roughly traced
+11886,acetylcholine,0.7848256230354309,acetylcholine,Traced,Roughly traced
+11933,gaba,0.8934550285339355,gaba,Traced,Roughly traced
+11987,acetylcholine,0.9000911116600037,acetylcholine,Traced,Roughly traced
+11989,acetylcholine,0.8883020281791687,acetylcholine,Traced,Roughly traced
+12059,gaba,0.7695024013519287,gaba,Traced,Prelim Roughly traced
+12083,glutamate,0.74936842918396,glutamate,Traced,Roughly traced
+12104,unclear,0.49193257093429565,unclear,Traced,Roughly traced
+12106,acetylcholine,0.9459109306335449,acetylcholine,Traced,Roughly traced
+12333,dopamine,0.7244850397109985,dopamine,Traced,Roughly traced
+12357,gaba,0.8943936228752136,gaba,Traced,Roughly traced
+12358,acetylcholine,0.7959356307983398,acetylcholine,Traced,Roughly traced
+12449,acetylcholine,0.9163315892219543,acetylcholine,Traced,Roughly traced
+12506,glutamate,0.6276686191558838,glutamate,Traced,Roughly traced
+12569,dopamine,0.8701401948928833,dopamine,Traced,Roughly traced
+12656,acetylcholine,0.7592818140983582,acetylcholine,Traced,Roughly traced
+12706,serotonin,0.7512667179107666,serotonin,Traced,Roughly traced
+12797,gaba,0.8976158499717712,gaba,Traced,Prelim Roughly traced
+12902,dopamine,0.6455005407333374,dopamine,Traced,Roughly traced
+13094,gaba,0.8230889439582825,gaba,Traced,Prelim Roughly traced
+13217,acetylcholine,0.8902036547660828,acetylcholine,Traced,Roughly traced
+13395,gaba,0.8941261768341064,gaba,Traced,Prelim Roughly traced
+13434,gaba,0.8968415856361389,gaba,Traced,Prelim Roughly traced
+13559,unclear,0.49222245812416077,serotonin,Traced,Roughly traced
+13877,acetylcholine,0.9229394197463989,acetylcholine,Traced,Roughly traced
+13914,serotonin,0.6923215985298157,acetylcholine,Traced,Prelim Roughly traced
+13985,gaba,0.898581326007843,gaba,Traced,Prelim Roughly traced
+13999,gaba,0.8893283009529114,gaba,Traced,Roughly traced
+14182,dopamine,0.8398758172988892,dopamine,Traced,Roughly traced
+14268,acetylcholine,0.9423421025276184,acetylcholine,Traced,Roughly traced
+14284,gaba,0.7866144180297852,gaba,Traced,Prelim Roughly traced
+14308,gaba,0.8971436023712158,gaba,Traced,Prelim Roughly traced
+14434,serotonin,0.5288777947425842,serotonin,Traced,Roughly traced
+14464,gaba,0.637037992477417,gaba,Traced,Roughly traced
+14482,gaba,0.8846093416213989,gaba,Traced,Prelim Roughly traced
+14507,acetylcholine,0.9103078246116638,acetylcholine,Traced,Roughly traced
+14552,octopamine,0.7409460544586182,octopamine,Traced,Roughly traced
+14727,acetylcholine,0.9188360571861267,acetylcholine,Traced,Roughly traced
+14871,octopamine,0.7415754199028015,octopamine,Traced,Roughly traced
+14963,gaba,0.7833661437034607,gaba,Traced,Prelim Roughly traced
+15176,acetylcholine,0.8835822343826294,acetylcholine,Traced,Roughly traced
+15441,acetylcholine,0.9475216269493103,acetylcholine,Traced,Prelim Roughly traced
+15444,gaba,0.8895883560180664,gaba,Traced,Roughly traced
+15458,acetylcholine,0.934342086315155,acetylcholine,Traced,Roughly traced
+15605,acetylcholine,0.9091376662254333,acetylcholine,Traced,Roughly traced
+15616,acetylcholine,0.9466649293899536,acetylcholine,Traced,Roughly traced
+15713,acetylcholine,0.923665463924408,acetylcholine,Traced,Roughly traced
+15888,dopamine,0.7144319415092468,dopamine,Traced,Roughly traced
+15924,glutamate,0.7294109463691711,glutamate,Traced,Roughly traced
+16008,acetylcholine,0.8187501430511475,acetylcholine,Traced,Roughly traced
+16343,gaba,0.8195285797119141,gaba,Traced,Prelim Roughly traced
+16360,acetylcholine,0.9256439805030823,acetylcholine,Traced,Roughly traced
+16440,gaba,0.8897424936294556,gaba,Traced,Prelim Roughly traced
+16473,gaba,0.825309693813324,gaba,Traced,Roughly traced
+16580,acetylcholine,0.9480879306793213,acetylcholine,Traced,Prelim Roughly traced
+16598,gaba,0.8902699947357178,gaba,Traced,Prelim Roughly traced
+16800,serotonin,0.7904782295227051,unclear,Traced,Roughly traced
+16818,gaba,0.8631043434143066,gaba,Traced,Prelim Roughly traced
+17078,gaba,0.7550445795059204,gaba,Traced,Prelim Roughly traced
+17100,acetylcholine,0.8712565302848816,acetylcholine,Traced,Roughly traced
+17171,gaba,0.7548250555992126,gaba,Traced,Prelim Roughly traced
+17402,gaba,0.8830147981643677,gaba,Traced,Prelim Roughly traced
+17419,gaba,0.6300148367881775,gaba,Traced,Roughly traced
+17454,acetylcholine,0.7334592938423157,acetylcholine,Traced,Roughly traced
+17561,gaba,0.8532686233520508,gaba,Traced,Roughly traced
+17591,gaba,0.8597873449325562,gaba,Traced,Prelim Roughly traced
+17602,acetylcholine,0.952067494392395,acetylcholine,Traced,Prelim Roughly traced
+17679,gaba,0.8863562345504761,gaba,Traced,Roughly traced
+17759,glutamate,0.7577831745147705,glutamate,Traced,Roughly traced
+17874,acetylcholine,0.9668818712234497,acetylcholine,Traced,Prelim Roughly traced
+17991,acetylcholine,0.957741916179657,acetylcholine,Traced,Roughly traced
+18058,gaba,0.8874881863594055,gaba,Traced,Roughly traced
+18156,dopamine,0.6700888276100159,dopamine,Traced,Roughly traced
+18242,acetylcholine,0.8603160977363586,acetylcholine,Traced,Roughly traced
+18377,gaba,0.8888511657714844,gaba,Traced,Prelim Roughly traced
+18419,acetylcholine,0.845084547996521,acetylcholine,Traced,Roughly traced
+18504,acetylcholine,0.8134763836860657,acetylcholine,Traced,Roughly traced
+18508,gaba,0.877575695514679,gaba,Traced,Roughly traced
+18633,gaba,0.7721866965293884,gaba,Traced,Prelim Roughly traced
+18664,gaba,0.8934015035629272,gaba,Traced,Roughly traced
+18733,gaba,0.8919827938079834,gaba,Traced,Roughly traced
+18744,acetylcholine,0.7914516925811768,acetylcholine,Traced,Roughly traced
+18779,acetylcholine,0.787574052810669,acetylcholine,Traced,Roughly traced
+18932,acetylcholine,0.8715888857841492,acetylcholine,Traced,Roughly traced
+18999,acetylcholine,0.9468486905097961,acetylcholine,Traced,Prelim Roughly traced
+19072,gaba,0.7438689470291138,gaba,Traced,Prelim Roughly traced
+19125,acetylcholine,0.9128329753875732,acetylcholine,Traced,Roughly traced
+19169,gaba,0.8264288306236267,gaba,Traced,Roughly traced
+19189,acetylcholine,0.8024826645851135,acetylcholine,Traced,Roughly traced
+19323,gaba,0.8550000190734863,gaba,Traced,Prelim Roughly traced
+19355,gaba,0.8978796005249023,gaba,Traced,Roughly traced
+19410,gaba,0.8536523580551147,gaba,Traced,Prelim Roughly traced
+19425,gaba,0.8863902688026428,gaba,Traced,Roughly traced
+19569,gaba,0.8792754411697388,gaba,Traced,Roughly traced
+19602,acetylcholine,0.9299538135528564,acetylcholine,Traced,Prelim Roughly traced
+19700,glutamate,0.6193179488182068,glutamate,Traced,Roughly traced
+19737,gaba,0.8639137148857117,gaba,Traced,Prelim Roughly traced
+19760,acetylcholine,0.860542893409729,acetylcholine,Traced,Roughly traced
+19791,gaba,0.8431799411773682,gaba,Traced,Prelim Roughly traced
+19807,gaba,0.8952374458312988,gaba,Traced,Roughly traced
+19825,acetylcholine,0.9043277502059937,acetylcholine,Traced,Roughly traced
+19900,gaba,0.8719837665557861,gaba,Traced,Roughly traced
+19917,gaba,0.8669986128807068,gaba,Traced,Roughly traced
+19935,gaba,0.8900206089019775,gaba,Traced,Roughly traced
+19974,glutamate,0.6027410626411438,glutamate,Traced,Roughly traced
+20007,acetylcholine,0.8235718607902527,acetylcholine,Traced,Roughly traced
+20026,gaba,0.7598991990089417,gaba,Traced,Prelim Roughly traced
+20233,acetylcholine,0.8096292018890381,acetylcholine,Traced,Roughly traced
+20253,gaba,0.8777843713760376,gaba,Traced,Roughly traced
+20317,gaba,0.8781349062919617,gaba,Traced,Roughly traced
+20347,acetylcholine,0.824006974697113,acetylcholine,Traced,Roughly traced
+20385,gaba,0.8631689548492432,gaba,Traced,Prelim Roughly traced
+20404,gaba,0.8463923335075378,gaba,Traced,Prelim Roughly traced
+20514,gaba,0.7883057594299316,gaba,Traced,Prelim Roughly traced
+20559,gaba,0.8776441216468811,gaba,Traced,Roughly traced
+20590,gaba,0.8860496878623962,gaba,Traced,Roughly traced
+20605,gaba,0.8827573657035828,gaba,Traced,Roughly traced
+20653,gaba,0.8618517518043518,gaba,Traced,Prelim Roughly traced
+20664,gaba,0.88509202003479,gaba,Traced,Roughly traced
+20678,gaba,0.8977730870246887,gaba,Traced,Roughly traced
+20715,octopamine,0.7585952877998352,octopamine,Traced,Roughly traced
+20781,serotonin,0.8056159615516663,unclear,Traced,Roughly traced
+20818,acetylcholine,0.7818468809127808,acetylcholine,Traced,Roughly traced
+20883,gaba,0.8847940564155579,gaba,Traced,Roughly traced
+20945,gaba,0.8857930898666382,gaba,Traced,Roughly traced
+20980,gaba,0.8663017749786377,gaba,Traced,Prelim Roughly traced
+21059,gaba,0.8830955028533936,gaba,Traced,Roughly traced
+21179,gaba,0.8836446404457092,gaba,Traced,Roughly traced
+21277,gaba,0.887286901473999,gaba,Traced,Roughly traced
+21449,gaba,0.8875210285186768,gaba,Traced,Roughly traced
+21645,gaba,0.8777993321418762,gaba,Traced,Roughly traced
+21664,gaba,0.8432319760322571,gaba,Traced,Roughly traced
+21719,glutamate,0.8124454617500305,glutamate,Traced,Roughly traced
+21752,gaba,0.8844197392463684,gaba,Traced,Roughly traced
+21882,gaba,0.879517138004303,gaba,Traced,Roughly traced
+21932,acetylcholine,0.8050244450569153,acetylcholine,Traced,Roughly traced
+22001,gaba,0.7924865484237671,gaba,Traced,Prelim Roughly traced
+22083,glutamate,0.6416040658950806,glutamate,Traced,Roughly traced
+22084,octopamine,0.7388583421707153,octopamine,Traced,Roughly traced
+22240,acetylcholine,0.8827762603759766,acetylcholine,Traced,Roughly traced
+22461,gaba,0.8529583811759949,gaba,Traced,Prelim Roughly traced
+22644,gaba,0.8244937062263489,gaba,Traced,Roughly traced
+22657,serotonin,0.8167579174041748,unclear,Traced,Roughly traced
+22884,glutamate,0.697345495223999,glutamate,Traced,Roughly traced
+22923,acetylcholine,0.944028913974762,acetylcholine,Traced,Prelim Roughly traced
+23080,gaba,0.8669335842132568,gaba,Traced,Prelim Roughly traced
+23083,serotonin,0.7074388265609741,acetylcholine,Traced,Prelim Roughly traced
+23097,gaba,0.8824422955513,gaba,Traced,Roughly traced
+23163,gaba,0.8555021286010742,gaba,Traced,Prelim Roughly traced
+23197,gaba,0.8580009937286377,gaba,Traced,Prelim Roughly traced
+23232,glutamate,0.5962773561477661,glutamate,Traced,Roughly traced
+23273,acetylcholine,0.840884268283844,acetylcholine,Traced,Roughly traced
+23281,glutamate,0.7160788178443909,glutamate,Traced,Roughly traced
+23315,gaba,0.8451310992240906,gaba,Traced,Prelim Roughly traced
+23325,unclear,0.4384157359600067,unclear,Traced,Roughly traced
+23359,serotonin,0.5913705825805664,acetylcholine,Traced,Prelim Roughly traced
+23473,glutamate,0.6196569800376892,glutamate,Traced,Roughly traced
+23520,gaba,0.8490665555000305,gaba,Traced,Prelim Roughly traced
+23601,serotonin,0.5159260034561157,serotonin,Traced,Roughly traced
+23619,acetylcholine,0.8855376839637756,acetylcholine,Traced,Roughly traced
+23703,gaba,0.7934677600860596,gaba,Traced,Roughly traced
+23858,serotonin,0.727091372013092,acetylcholine,Traced,Prelim Roughly traced
+23859,gaba,0.8363180160522461,gaba,Traced,Roughly traced
+23874,gaba,0.8648935556411743,gaba,Traced,Prelim Roughly traced
+24076,gaba,0.8626708984375,gaba,Traced,Prelim Roughly traced
+24093,gaba,0.8816388249397278,gaba,Traced,Roughly traced
+24122,gaba,0.8648447394371033,gaba,Traced,Prelim Roughly traced
+24153,serotonin,0.7067307829856873,acetylcholine,Traced,Prelim Roughly traced
+24314,serotonin,0.6621477603912354,acetylcholine,Traced,Prelim Roughly traced
+24382,acetylcholine,0.8826537728309631,acetylcholine,Traced,Roughly traced
+24459,gaba,0.8580466508865356,gaba,Traced,Prelim Roughly traced
+24549,gaba,0.8917374014854431,gaba,Traced,Roughly traced
+24671,serotonin,0.6019271612167358,acetylcholine,Traced,Prelim Roughly traced
+24879,gaba,0.856107234954834,gaba,Traced,Prelim Roughly traced
+24963,serotonin,0.6825077533721924,acetylcholine,Traced,Prelim Roughly traced
+25024,serotonin,0.635906457901001,acetylcholine,Traced,Prelim Roughly traced
+25036,serotonin,0.6516087055206299,acetylcholine,Traced,Prelim Roughly traced
+25137,serotonin,0.617673397064209,acetylcholine,Traced,Prelim Roughly traced
+25176,serotonin,0.6334261298179626,acetylcholine,Traced,Prelim Roughly traced
+25184,acetylcholine,0.8605718016624451,acetylcholine,Traced,Roughly traced
+25203,gaba,0.8765828013420105,gaba,Traced,Roughly traced
+25297,gaba,0.8808947205543518,gaba,Traced,Roughly traced
+25328,glutamate,0.7187944054603577,glutamate,Traced,Roughly traced
+25329,gaba,0.8231660723686218,gaba,Traced,Roughly traced
+25359,gaba,0.8385199308395386,gaba,Traced,Roughly traced
+25447,gaba,0.8987915515899658,gaba,Traced,Roughly traced
+25494,gaba,0.8265291452407837,gaba,Traced,Roughly traced
+25501,gaba,0.8750514984130859,gaba,Traced,Prelim Roughly traced
+25549,acetylcholine,0.7070187330245972,acetylcholine,Traced,Roughly traced
+25554,glutamate,0.7149307131767273,glutamate,Traced,Prelim Roughly traced
+25709,gaba,0.8737983703613281,gaba,Traced,Roughly traced
+25792,acetylcholine,0.7717568278312683,acetylcholine,Traced,Roughly traced
+25797,gaba,0.8625675439834595,gaba,Traced,Prelim Roughly traced
+25841,gaba,0.8645661473274231,gaba,Traced,Prelim Roughly traced
+26064,serotonin,0.6430674195289612,acetylcholine,Traced,Prelim Roughly traced
+26136,gaba,0.8729521632194519,gaba,Traced,Roughly traced
+26242,serotonin,0.6513108611106873,acetylcholine,Traced,Prelim Roughly traced
+26295,gaba,0.8468773365020752,gaba,Traced,Roughly traced
+26417,acetylcholine,0.7899700403213501,acetylcholine,Traced,Roughly traced
+26429,serotonin,0.5992788672447205,acetylcholine,Traced,Prelim Roughly traced
+26443,acetylcholine,0.8319980502128601,acetylcholine,Traced,Roughly traced
+26665,glutamate,0.7201804518699646,glutamate,Traced,Roughly traced
+26673,gaba,0.8752346634864807,gaba,Traced,Prelim Roughly traced
+26798,gaba,0.7957766056060791,gaba,Traced,Roughly traced
+26841,gaba,0.8565227389335632,gaba,Traced,Roughly traced
+26843,gaba,0.8815531730651855,gaba,Traced,Prelim Roughly traced
+26939,gaba,0.8366854786872864,gaba,Traced,Roughly traced
+27013,gaba,0.838212251663208,gaba,Traced,Roughly traced
+27043,gaba,0.8874924182891846,gaba,Traced,Roughly traced
+27052,gaba,0.7899628281593323,gaba,Traced,Prelim Roughly traced
+27106,serotonin,0.5671823024749756,acetylcholine,Traced,Prelim Roughly traced
+27133,serotonin,0.5841115117073059,acetylcholine,Traced,Prelim Roughly traced
+27246,gaba,0.8133418560028076,gaba,Traced,Prelim Roughly traced
+27269,gaba,0.8007407784461975,gaba,Traced,Roughly traced
+27296,acetylcholine,0.7289065718650818,acetylcholine,Traced,Roughly traced
+27348,gaba,0.8818407654762268,gaba,Traced,Roughly traced
+27425,serotonin,0.642979085445404,acetylcholine,Traced,Prelim Roughly traced
+27454,gaba,0.814315676689148,gaba,Traced,Roughly traced
+27770,gaba,0.8893970847129822,gaba,Traced,Prelim Roughly traced
+27806,gaba,0.8330727815628052,gaba,Traced,Roughly traced
+27850,gaba,0.8890825510025024,gaba,Traced,Prelim Roughly traced
+27903,gaba,0.8157682418823242,gaba,Traced,Prelim Roughly traced
+27926,acetylcholine,0.7800764441490173,acetylcholine,Traced,Prelim Roughly traced
+28339,gaba,0.8399633169174194,gaba,Traced,Prelim Roughly traced
+28430,gaba,0.8555073142051697,gaba,Traced,Roughly traced
+28627,gaba,0.8596948981285095,gaba,Traced,Roughly traced
+28675,gaba,0.7231869101524353,gaba,Traced,Prelim Roughly traced
+28701,gaba,0.8086966276168823,gaba,Traced,Roughly traced
+28709,glutamate,0.6903384923934937,glutamate,Traced,Prelim Roughly traced
+28782,serotonin,0.5709829330444336,acetylcholine,Traced,Prelim Roughly traced
+28791,acetylcholine,0.8552621603012085,acetylcholine,Traced,Roughly traced
+29046,gaba,0.8334441781044006,gaba,Traced,Prelim Roughly traced
+29135,acetylcholine,0.8072587251663208,acetylcholine,Traced,Roughly traced
+29177,gaba,0.8219484686851501,gaba,Traced,Prelim Roughly traced
+29545,gaba,0.8847296237945557,gaba,Traced,Prelim Roughly traced
+29648,serotonin,0.6132648587226868,acetylcholine,Traced,Prelim Roughly traced
+29711,gaba,0.7839696407318115,gaba,Traced,Roughly traced
+29713,octopamine,0.7516434788703918,octopamine,Traced,Roughly traced
+29791,gaba,0.8350033164024353,gaba,Traced,Prelim Roughly traced
+29842,gaba,0.8659044504165649,gaba,Traced,Roughly traced
+30171,gaba,0.7624225616455078,gaba,Traced,Prelim Roughly traced
+30178,gaba,0.8327818512916565,gaba,Traced,Prelim Roughly traced
+30181,acetylcholine,0.6711158156394958,acetylcholine,Traced,Roughly traced
+30206,gaba,0.6990048289299011,gaba,Traced,Prelim Roughly traced
+30310,acetylcholine,0.8240692019462585,acetylcholine,Traced,Roughly traced
+30371,gaba,0.7361713647842407,gaba,Traced,Roughly traced
+30443,gaba,0.7770353555679321,gaba,Traced,Roughly traced
+30522,gaba,0.8189561367034912,gaba,Traced,Prelim Roughly traced
+30592,gaba,0.8582642078399658,gaba,Traced,Prelim Roughly traced
+30653,serotonin,0.7898211479187012,unclear,Traced,Roughly traced
+30674,gaba,0.7874423861503601,gaba,Traced,Prelim Roughly traced
+30807,acetylcholine,0.8028836846351624,acetylcholine,Traced,Roughly traced
+31051,gaba,0.8606468439102173,gaba,Traced,Roughly traced
+31088,gaba,0.8465239405632019,gaba,Traced,Roughly traced
+31121,gaba,0.7368694543838501,gaba,Traced,Roughly traced
+31263,gaba,0.8340736627578735,gaba,Traced,Prelim Roughly traced
+31541,gaba,0.829284131526947,gaba,Traced,Prelim Roughly traced
+31681,gaba,0.7699750065803528,gaba,Traced,Roughly traced
+31684,gaba,0.8345337510108948,gaba,Traced,Roughly traced
+31735,gaba,0.7652400732040405,gaba,Traced,Roughly traced
+31970,gaba,0.8242021203041077,gaba,Traced,Roughly traced
+32258,acetylcholine,0.8506632447242737,acetylcholine,Traced,Roughly traced
+32315,gaba,0.7786609530448914,gaba,Traced,Roughly traced
+32451,serotonin,0.5431872010231018,unclear,Traced,Roughly traced
+33298,acetylcholine,0.6542697548866272,acetylcholine,Traced,Roughly traced
+33382,acetylcholine,0.7556616067886353,acetylcholine,Traced,Roughly traced
+33589,gaba,0.8378749489784241,gaba,Traced,Prelim Roughly traced
+33598,acetylcholine,0.7477918267250061,acetylcholine,Traced,Roughly traced
+33911,gaba,0.740136444568634,gaba,Traced,Roughly traced
+34038,gaba,0.8512243032455444,gaba,Traced,Prelim Roughly traced
+34188,octopamine,0.768028974533081,octopamine,Traced,Roughly traced
+34239,gaba,0.8385374546051025,gaba,Traced,Prelim Roughly traced
+34607,gaba,0.8337929248809814,gaba,Traced,Prelim Roughly traced
+34652,gaba,0.6869168281555176,gaba,Traced,Roughly traced
+34737,gaba,0.7820813059806824,gaba,Traced,Roughly traced
+34922,gaba,0.7735880017280579,gaba,Traced,Roughly traced
+34949,acetylcholine,0.7629520297050476,acetylcholine,Traced,Roughly traced
+35450,glutamate,0.6663638353347778,glutamate,Traced,Roughly traced
+35545,gaba,0.8047212362289429,gaba,Traced,Prelim Roughly traced
+35641,gaba,0.8318608999252319,gaba,Traced,Roughly traced
+35743,acetylcholine,0.7671342492103577,acetylcholine,Traced,Roughly traced
+35978,gaba,0.7511727213859558,gaba,Traced,Roughly traced
+36059,serotonin,0.5734014511108398,acetylcholine,Traced,Prelim Roughly traced
+36235,gaba,0.8409045934677124,gaba,Traced,Roughly traced
+36327,gaba,0.8566513657569885,gaba,Traced,Prelim Roughly traced
+36384,gaba,0.7317294478416443,gaba,Traced,Roughly traced
+36423,dopamine,0.6502826809883118,dopamine,Traced,Roughly traced
+36524,gaba,0.8839787840843201,gaba,Traced,Roughly traced
+36730,gaba,0.7138134837150574,gaba,Traced,Roughly traced
+36928,gaba,0.7954395413398743,gaba,Traced,Roughly traced
+37058,gaba,0.7341989874839783,gaba,Traced,Roughly traced
+37105,gaba,0.7376775741577148,gaba,Traced,Roughly traced
+37142,acetylcholine,0.7738228440284729,acetylcholine,Traced,Roughly traced
+37437,gaba,0.8464573621749878,gaba,Traced,Roughly traced
+37758,gaba,0.8670741319656372,gaba,Traced,Roughly traced
+37817,gaba,0.863532543182373,gaba,Traced,Roughly traced
+38001,gaba,0.7818824648857117,gaba,Traced,Roughly traced
+38084,gaba,0.8286896347999573,gaba,Traced,Roughly traced
+38268,gaba,0.7813045978546143,gaba,Traced,Roughly traced
+38306,gaba,0.8306261301040649,gaba,Traced,Roughly traced
+38706,dopamine,0.6077509522438049,dopamine,Traced,Roughly traced
+39095,gaba,0.8102500438690186,gaba,Traced,Roughly traced
+39413,acetylcholine,0.8888020515441895,acetylcholine,Traced,Roughly traced
+39503,gaba,0.776418149471283,gaba,Traced,Roughly traced
+39753,acetylcholine,0.8079886436462402,acetylcholine,Traced,Roughly traced
+39798,gaba,0.7127311825752258,gaba,Traced,Prelim Roughly traced
+39813,acetylcholine,0.8359457850456238,acetylcholine,Traced,Roughly traced
+40213,gaba,0.7310331463813782,gaba,Traced,Roughly traced
+40390,acetylcholine,0.8259774446487427,acetylcholine,Traced,Roughly traced
+40458,glutamate,0.8053480982780457,glutamate,Traced,Roughly traced
+40558,gaba,0.8257417678833008,gaba,Traced,Prelim Roughly traced
+40565,serotonin,0.5731594562530518,acetylcholine,Traced,Prelim Roughly traced
+40768,acetylcholine,0.9140706062316895,acetylcholine,Traced,Roughly traced
+41665,gaba,0.7756762504577637,gaba,Traced,Roughly traced
+41715,serotonin,0.6294117569923401,acetylcholine,Traced,Prelim Roughly traced
+41743,serotonin,0.5148605704307556,acetylcholine,Traced,Prelim Roughly traced
+41908,gaba,0.8377633690834045,gaba,Traced,Prelim Roughly traced
+42059,acetylcholine,0.7687132358551025,acetylcholine,Traced,Roughly traced
+42231,acetylcholine,0.9493651390075684,acetylcholine,Traced,Prelim Roughly traced
+42241,gaba,0.7851988077163696,gaba,Traced,Roughly traced
+42264,gaba,0.8438483476638794,gaba,Traced,Roughly traced
+42509,gaba,0.8052104115486145,gaba,Traced,Roughly traced
+42736,acetylcholine,0.9481151700019836,acetylcholine,Traced,Roughly traced
+42793,glutamate,0.7568321824073792,glutamate,Traced,Roughly traced
+43039,gaba,0.8004480004310608,gaba,Traced,Prelim Roughly traced
+43212,gaba,0.8464019894599915,gaba,Traced,Roughly traced
+43683,gaba,0.9014478325843811,gaba,Traced,Roughly traced
+43881,serotonin,0.5294951796531677,unclear,Traced,Roughly traced
+44010,gaba,0.8623760342597961,gaba,Traced,Prelim Roughly traced
+44056,acetylcholine,0.9470587372779846,acetylcholine,Traced,Roughly traced
+44127,gaba,0.8093352913856506,gaba,Traced,Prelim Roughly traced
+44422,gaba,0.8691607713699341,gaba,Traced,Roughly traced
+44814,gaba,0.8470206260681152,gaba,Traced,Roughly traced
+44830,gaba,0.8397272825241089,gaba,Traced,Roughly traced
+44861,acetylcholine,0.9384967088699341,acetylcholine,Traced,Roughly traced
+44903,dopamine,0.7428543567657471,dopamine,Traced,Roughly traced
+44909,gaba,0.790709912776947,gaba,Traced,Prelim Roughly traced
+45024,dopamine,0.6749753355979919,dopamine,Traced,Roughly traced
+45134,gaba,0.7822883129119873,gaba,Traced,Roughly traced
+45427,octopamine,0.7482763528823853,octopamine,Traced,Roughly traced
+45839,gaba,0.8388070464134216,gaba,Traced,Prelim Roughly traced
+45969,acetylcholine,0.7833880186080933,acetylcholine,Traced,Roughly traced
+46073,octopamine,0.7989407777786255,octopamine,Traced,Roughly traced
+46089,gaba,0.8250303864479065,gaba,Traced,Roughly traced
+46242,gaba,0.9036049842834473,gaba,Traced,Roughly traced
+46262,gaba,0.8197711110115051,gaba,Traced,Roughly traced
+46341,gaba,0.8725143671035767,gaba,Traced,Prelim Roughly traced
+46707,gaba,0.8716413378715515,gaba,Traced,Roughly traced
+46764,octopamine,0.7651734948158264,octopamine,Traced,Roughly traced
+47036,gaba,0.8322881460189819,gaba,Traced,Roughly traced
+47186,gaba,0.8712495565414429,gaba,Traced,Roughly traced
+47271,gaba,0.8363627195358276,gaba,Traced,Roughly traced
+47464,gaba,0.8112629652023315,gaba,Traced,Prelim Roughly traced
+47859,gaba,0.8138655424118042,gaba,Traced,Roughly traced
+48096,gaba,0.7768906354904175,gaba,Traced,Roughly traced
+48291,gaba,0.8745529055595398,gaba,Traced,Prelim Roughly traced
+48318,gaba,0.8043665289878845,gaba,Traced,Roughly traced
+48335,glutamate,0.7269783616065979,glutamate,Traced,Prelim Roughly traced
+48362,gaba,0.6169193387031555,gaba,Traced,Prelim Roughly traced
+48956,gaba,0.8414196372032166,gaba,Traced,Prelim Roughly traced
+49002,gaba,0.8192181587219238,gaba,Traced,Roughly traced
+49288,serotonin,0.5345430970191956,unclear,Traced,Roughly traced
+49378,gaba,0.8390405178070068,gaba,Traced,Roughly traced
+49869,gaba,0.8222270011901855,gaba,Traced,Roughly traced
+50007,gaba,0.8179033994674683,gaba,Traced,Roughly traced
+50694,gaba,0.8795239329338074,gaba,Traced,Prelim Roughly traced
+50808,gaba,0.8581598997116089,gaba,Traced,Prelim Roughly traced
+50888,gaba,0.8946369886398315,gaba,Traced,Roughly traced
+51159,octopamine,0.7879899144172668,octopamine,Traced,Roughly traced
+51382,gaba,0.829892098903656,gaba,Traced,Prelim Roughly traced
+51555,octopamine,0.7673172354698181,octopamine,Traced,Roughly traced
+52191,serotonin,0.6131224632263184,acetylcholine,Traced,Prelim Roughly traced
+52832,gaba,0.8590961694717407,gaba,Traced,Roughly traced
+53086,acetylcholine,0.7789945006370544,acetylcholine,Traced,Roughly traced
+53618,gaba,0.8279951810836792,gaba,Traced,Roughly traced
+53743,glutamate,0.7258610725402832,glutamate,Traced,Prelim Roughly traced
+53745,gaba,0.8267179727554321,gaba,Traced,Roughly traced
+53755,serotonin,0.5563384294509888,unclear,Traced,Roughly traced
+54597,gaba,0.8133524060249329,gaba,Traced,Roughly traced
+54912,gaba,0.8437789678573608,gaba,Traced,Prelim Roughly traced
+55527,acetylcholine,0.8433325886726379,acetylcholine,Traced,Roughly traced
+55630,acetylcholine,0.932959794998169,acetylcholine,Traced,Roughly traced
+55953,glutamate,0.6601548790931702,glutamate,Traced,Roughly traced
+56542,serotonin,0.5754753351211548,acetylcholine,Traced,Prelim Roughly traced
+56993,gaba,0.7546220421791077,gaba,Traced,Prelim Roughly traced
+57591,acetylcholine,0.9104549288749695,acetylcholine,Traced,Roughly traced
+58172,acetylcholine,0.8558565378189087,acetylcholine,Traced,Roughly traced
+58834,octopamine,0.5720048546791077,octopamine,Traced,Roughly traced
+59230,gaba,0.8724974989891052,gaba,Traced,Roughly traced
+59288,serotonin,0.5449347496032715,unclear,Traced,Roughly traced
+59337,gaba,0.8775231838226318,gaba,Traced,Prelim Roughly traced
+59846,glutamate,0.7903676629066467,glutamate,Traced,Prelim Roughly traced
+59969,acetylcholine,0.951256275177002,acetylcholine,Traced,Roughly traced
+59994,acetylcholine,0.7907757759094238,acetylcholine,Traced,Roughly traced
+61273,gaba,0.7758320569992065,gaba,Traced,Roughly traced
+61590,octopamine,0.6999877691268921,octopamine,Traced,Roughly traced
+61845,octopamine,0.7717338800430298,octopamine,Traced,Roughly traced
+63782,gaba,0.8463882207870483,gaba,Traced,Roughly traced
+66561,acetylcholine,0.5707823634147644,acetylcholine,Traced,Roughly traced
+66711,dopamine,0.8321681022644043,acetylcholine,Traced,Roughly traced
+67174,gaba,0.8060835599899292,gaba,Traced,Roughly traced
+67540,glutamate,0.7940192222595215,glutamate,Traced,Roughly traced
+69319,gaba,0.8634471297264099,gaba,Traced,Roughly traced
+69454,gaba,0.824782133102417,gaba,Traced,Roughly traced
+70378,dopamine,0.7483127117156982,acetylcholine,Traced,Roughly traced
+71503,gaba,0.764419674873352,gaba,Traced,Roughly traced
+72133,acetylcholine,0.8288552165031433,acetylcholine,Traced,Roughly traced
+72491,gaba,0.7832368612289429,gaba,Traced,Roughly traced
+72824,gaba,0.8605657815933228,gaba,Traced,Prelim Roughly traced
+73853,acetylcholine,0.9477927684783936,acetylcholine,Traced,Prelim Roughly traced
+73908,acetylcholine,0.8599897623062134,acetylcholine,Traced,Roughly traced
+74917,serotonin,0.5228480696678162,unclear,Traced,Roughly traced
+76194,acetylcholine,0.8061302900314331,acetylcholine,Traced,Roughly traced
+76412,glutamate,0.7164780497550964,glutamate,Traced,Roughly traced
+76585,glutamate,0.8167148232460022,glutamate,Traced,Roughly traced
+78261,dopamine,0.7390878200531006,acetylcholine,Traced,Roughly traced
+79038,dopamine,0.7426624894142151,acetylcholine,Traced,Roughly traced
+79615,acetylcholine,0.780695915222168,acetylcholine,Traced,Roughly traced
+79788,acetylcholine,0.559514045715332,acetylcholine,Traced,Roughly traced
+80549,glutamate,0.6245008111000061,glutamate,Traced,Roughly traced
+80867,gaba,0.8358190059661865,gaba,Traced,Roughly traced
+81159,acetylcholine,0.7228929400444031,acetylcholine,Traced,Roughly traced
+84121,glutamate,0.7855557203292847,glutamate,Traced,Roughly traced
+84758,acetylcholine,0.9008745551109314,acetylcholine,Traced,Roughly traced
+87077,glutamate,0.8307228684425354,glutamate,Traced,Roughly traced
+88014,serotonin,0.5531045794487,unclear,Traced,Roughly traced
+88192,dopamine,0.7394759058952332,acetylcholine,Traced,Roughly traced
+88342,acetylcholine,0.9036670327186584,acetylcholine,Traced,Roughly traced
+92188,acetylcholine,0.8768095374107361,acetylcholine,Traced,Roughly traced
+92330,acetylcholine,0.9428198337554932,acetylcholine,Traced,Prelim Roughly traced
+92430,dopamine,0.727790892124176,acetylcholine,Traced,Roughly traced
+93067,glutamate,0.8214588165283203,glutamate,Traced,Roughly traced
+95025,glutamate,0.7972289323806763,glutamate,Traced,Prelim Roughly traced
+95331,glutamate,0.84305739402771,glutamate,Traced,Prelim Roughly traced
+97510,glutamate,0.8121340274810791,glutamate,Traced,Prelim Roughly traced
+97946,acetylcholine,0.5207821130752563,acetylcholine,Traced,Roughly traced
+100809,acetylcholine,0.8297500014305115,acetylcholine,Traced,Roughly traced
+100824,acetylcholine,0.8535978198051453,acetylcholine,Traced,Roughly traced
+102359,acetylcholine,0.7867475152015686,acetylcholine,Traced,Roughly traced
+104306,gaba,0.8420667052268982,gaba,Traced,Prelim Roughly traced
+105775,glutamate,0.7867665886878967,glutamate,Traced,Prelim Roughly traced
+107195,acetylcholine,0.923775851726532,acetylcholine,Traced,Roughly traced
+111837,acetylcholine,0.8227202892303467,acetylcholine,Traced,Roughly traced
+113280,dopamine,0.6741800904273987,acetylcholine,Traced,Roughly traced
+113588,glutamate,0.7649738788604736,glutamate,Traced,Roughly traced
+115546,glutamate,0.8304764032363892,glutamate,Traced,Prelim Roughly traced
+116467,dopamine,0.7925743460655212,acetylcholine,Traced,Roughly traced
+117172,unclear,0.8646047115325928,acetylcholine,Traced,Roughly traced
+119860,glutamate,0.5297946333885193,glutamate,Traced,Roughly traced
+120259,dopamine,0.8795288801193237,dopamine,Traced,Roughly traced
+122167,acetylcholine,0.9093623757362366,acetylcholine,Traced,Roughly traced
+123248,glutamate,0.7314850091934204,glutamate,Traced,Prelim Roughly traced
+126496,acetylcholine,0.7143000364303589,acetylcholine,Traced,Roughly traced
+127066,unclear,0.8254889249801636,acetylcholine,Traced,Roughly traced
+129772,acetylcholine,0.6254062056541443,acetylcholine,Traced,Roughly traced
+131313,acetylcholine,0.9245555996894836,acetylcholine,Traced,Roughly traced
+133390,unclear,0.6050500273704529,acetylcholine,Traced,Roughly traced
+135614,dopamine,0.7655115127563477,acetylcholine,Traced,Roughly traced
+137321,dopamine,0.8849120736122131,dopamine,Traced,Roughly traced
+146773,dopamine,0.8679973483085632,dopamine,Traced,Roughly traced
+151341,acetylcholine,0.7693942785263062,acetylcholine,Traced,Roughly traced
+153703,dopamine,0.7076632380485535,acetylcholine,Traced,Roughly traced
+162211,glutamate,0.7843906879425049,glutamate,Traced,Roughly traced
+162290,acetylcholine,0.6462881565093994,acetylcholine,Traced,Roughly traced
+163733,acetylcholine,0.6949829459190369,acetylcholine,Traced,Roughly traced
+164466,unclear,0.6881437301635742,acetylcholine,Traced,Roughly traced
+165646,acetylcholine,0.6337873935699463,acetylcholine,Traced,Roughly traced
+166914,dopamine,0.6977811455726624,acetylcholine,Traced,Prelim Roughly traced
+168006,dopamine,0.7315469980239868,acetylcholine,Traced,Roughly traced
+169027,dopamine,0.8684730529785156,dopamine,Traced,Roughly traced
+178455,acetylcholine,0.8376696705818176,acetylcholine,Traced,Roughly traced
+182003,acetylcholine,0.960230827331543,acetylcholine,Traced,Roughly traced
+183579,unclear,0.7144704461097717,acetylcholine,Traced,Roughly traced
+186613,dopamine,0.7419067025184631,acetylcholine,Traced,Roughly traced
+190020,acetylcholine,0.8814198970794678,acetylcholine,Traced,Prelim Roughly traced
+190208,unclear,0.7513278126716614,acetylcholine,Traced,Roughly traced
+191750,unclear,0.7121152281761169,acetylcholine,Traced,Roughly traced
+193364,unclear,0.8255868554115295,acetylcholine,Traced,Roughly traced
+197565,acetylcholine,0.8990090489387512,acetylcholine,Traced,Roughly traced
+208566,glutamate,0.8233705759048462,glutamate,Traced,Roughly traced
+236418,acetylcholine,0.5940377116203308,acetylcholine,Traced,Roughly traced
+292203,dopamine,0.8998489379882812,dopamine,Traced,Roughly traced
+294178,octopamine,0.739493727684021,octopamine,Traced,Roughly traced
+305537,acetylcholine,0.55862957239151,acetylcholine,Traced,RT Hard to trace
+394860,glutamate,0.8232318162918091,glutamate,Traced,Prelim Roughly traced
+454614,gaba,0.8952113389968872,gaba,Traced,Prelim Roughly traced
+508595,acetylcholine,0.929259181022644,acetylcholine,Traced,Roughly traced
+511777,gaba,0.7773633599281311,gaba,Traced,Roughly traced
+511778,octopamine,0.7677125930786133,octopamine,Traced,Roughly traced
+511844,acetylcholine,0.7710233926773071,acetylcholine,Traced,Roughly traced
+511857,gaba,0.7383999228477478,gaba,Traced,Roughly traced
+512041,glutamate,0.7637098431587219,glutamate,Traced,Prelim Roughly traced
+512045,glutamate,0.827094316482544,glutamate,Traced,Roughly traced
+512186,glutamate,0.7803018689155579,glutamate,Traced,Roughly traced
+512245,unclear,0.3371787965297699,unclear,Traced,Roughly traced
+512305,acetylcholine,0.8773804903030396,acetylcholine,Traced,Roughly traced
+512319,gaba,0.6405571699142456,gaba,Traced,Roughly traced
+512458,unclear,0.5759214162826538,unclear,Orphan,Orphan-artifact
+512513,acetylcholine,0.8928799033164978,acetylcholine,Traced,Roughly traced
+512514,acetylcholine,0.8880871534347534,acetylcholine,Traced,Roughly traced
+512515,gaba,0.8762083053588867,gaba,Traced,Prelim Roughly traced
+512606,gaba,0.8707953095436096,gaba,Traced,Roughly traced
+512607,gaba,0.7841386795043945,gaba,Traced,Roughly traced
+512608,gaba,0.8749327063560486,gaba,Traced,Prelim Roughly traced
+512793,acetylcholine,0.84980708360672,acetylcholine,Traced,Roughly traced
+512841,acetylcholine,0.9314591288566589,acetylcholine,Traced,Roughly traced
+512927,acetylcholine,0.8009998202323914,acetylcholine,Traced,Roughly traced
+512928,acetylcholine,0.9378676414489746,acetylcholine,Traced,Roughly traced
+513033,acetylcholine,0.9062487483024597,acetylcholine,Traced,Roughly traced
+513283,acetylcholine,0.8513032793998718,acetylcholine,Traced,Roughly traced
+513284,acetylcholine,0.9550497531890869,acetylcholine,Traced,Roughly traced
+513346,gaba,0.867684543132782,gaba,Traced,Prelim Roughly traced
+513379,gaba,0.7541671991348267,gaba,Traced,Prelim Roughly traced
+513463,acetylcholine,0.927788496017456,acetylcholine,Traced,Roughly traced
+513464,acetylcholine,0.9043056964874268,acetylcholine,Traced,Roughly traced
+513517,acetylcholine,0.9003533124923706,acetylcholine,Traced,Roughly traced
+513520,acetylcholine,0.8940376043319702,acetylcholine,Traced,Roughly traced
+513678,gaba,0.8947542905807495,gaba,Traced,Prelim Roughly traced
+514042,gaba,0.8808068633079529,gaba,Traced,Roughly traced
+514045,acetylcholine,0.7873313426971436,acetylcholine,Traced,Roughly traced
+514125,acetylcholine,0.849084734916687,acetylcholine,Traced,Roughly traced
+514126,acetylcholine,0.8983420729637146,acetylcholine,Traced,Roughly traced
+514180,gaba,0.7557859420776367,gaba,Traced,Roughly traced
+514184,serotonin,0.6388089656829834,acetylcholine,Traced,Prelim Roughly traced
+514405,acetylcholine,0.788428008556366,acetylcholine,Traced,Roughly traced
+514803,gaba,0.8757161498069763,gaba,Traced,Roughly traced
+514997,acetylcholine,0.9341880083084106,acetylcholine,Traced,Roughly traced
+515130,acetylcholine,0.9522024989128113,acetylcholine,Traced,Roughly traced
+515193,serotonin,0.6106624603271484,unclear,Traced,Roughly traced
+515221,glutamate,0.689996600151062,glutamate,Traced,Roughly traced
+515232,acetylcholine,0.9441640377044678,acetylcholine,Traced,Prelim Roughly traced
+515675,acetylcholine,0.8779536485671997,acetylcholine,Traced,Roughly traced
+515760,gaba,0.8834136724472046,gaba,Traced,Prelim Roughly traced
+515761,gaba,0.8372169733047485,gaba,Traced,Roughly traced
+515933,dopamine,0.6293010711669922,dopamine,Traced,Roughly traced
+516110,gaba,0.668603777885437,gaba,Traced,Roughly traced
+516663,acetylcholine,0.680094838142395,acetylcholine,Traced,Roughly traced
+516944,gaba,0.7911621332168579,gaba,Traced,Prelim Roughly traced
+517059,gaba,0.889236569404602,gaba,Traced,Roughly traced
+517212,acetylcholine,0.8630610704421997,acetylcholine,Traced,Roughly traced
+517264,gaba,0.8798906207084656,gaba,Traced,Roughly traced
+517512,dopamine,0.6552850604057312,dopamine,Traced,Roughly traced
+517548,serotonin,0.5065273642539978,serotonin,Traced,Roughly traced
+517602,gaba,0.7971140742301941,gaba,Traced,Roughly traced
+517603,gaba,0.8251732587814331,gaba,Traced,Prelim Roughly traced
+517763,octopamine,0.7557967305183411,octopamine,Traced,Roughly traced
+518194,acetylcholine,0.740666389465332,acetylcholine,Traced,Roughly traced
+518690,gaba,0.7439987659454346,gaba,Traced,Roughly traced
+519140,acetylcholine,0.8866580724716187,acetylcholine,Traced,Roughly traced
+519144,acetylcholine,0.9097036123275757,acetylcholine,Traced,Roughly traced
+519284,glutamate,0.8099826574325562,glutamate,Traced,Roughly traced
+519296,acetylcholine,0.9379719495773315,acetylcholine,Traced,Roughly traced
+519328,acetylcholine,0.9073650240898132,acetylcholine,Traced,Roughly traced
+519329,gaba,0.6957793235778809,gaba,Traced,Roughly traced
+519347,gaba,0.8864728212356567,gaba,Traced,Prelim Roughly traced
+519354,acetylcholine,0.9561916589736938,acetylcholine,Traced,Roughly traced
+519941,acetylcholine,0.9067867398262024,acetylcholine,Traced,Roughly traced
+520210,acetylcholine,0.9152658581733704,acetylcholine,Traced,Roughly traced
+520468,serotonin,0.7602676153182983,serotonin,Traced,Roughly traced
+520575,acetylcholine,0.8357212543487549,acetylcholine,Traced,Roughly traced
+520581,acetylcholine,0.9119448065757751,acetylcholine,Traced,Roughly traced
+520721,acetylcholine,0.9421271681785583,acetylcholine,Traced,Roughly traced
+520723,acetylcholine,0.9500017762184143,acetylcholine,Traced,Prelim Roughly traced
+520812,acetylcholine,0.8795760273933411,acetylcholine,Traced,Roughly traced
+520817,glutamate,0.630370020866394,glutamate,Traced,Roughly traced
+520818,acetylcholine,0.8872126340866089,acetylcholine,Traced,Roughly traced
+521409,acetylcholine,0.9292009472846985,acetylcholine,Traced,Roughly traced
+521527,glutamate,0.5612221360206604,glutamate,Traced,Roughly traced
+521528,gaba,0.7930279970169067,gaba,Traced,Prelim Roughly traced
+521534,gaba,0.6787572503089905,gaba,Traced,Prelim Roughly traced
+521535,gaba,0.7305011749267578,gaba,Traced,Prelim Roughly traced
+521626,acetylcholine,0.9498201012611389,acetylcholine,Traced,Prelim Roughly traced
+521687,acetylcholine,0.9324709177017212,acetylcholine,Traced,Roughly traced
+521812,acetylcholine,0.8996769189834595,acetylcholine,Traced,Roughly traced
+521813,acetylcholine,0.8914613723754883,acetylcholine,Traced,Roughly traced
+521814,acetylcholine,0.7642573118209839,acetylcholine,Traced,Roughly traced
+522444,glutamate,0.7516584396362305,glutamate,Traced,Roughly traced
+522745,gaba,0.8842207789421082,gaba,Traced,Roughly traced
+522749,glutamate,0.7287420034408569,glutamate,Traced,Roughly traced
+522759,gaba,0.8038198351860046,gaba,Traced,Prelim Roughly traced
+522806,gaba,0.8313260078430176,gaba,Traced,Roughly traced
+522972,acetylcholine,0.7985309362411499,acetylcholine,Traced,Roughly traced
+522973,acetylcholine,0.8295974135398865,acetylcholine,Traced,Roughly traced
+522974,acetylcholine,0.9308260083198547,acetylcholine,Traced,Prelim Roughly traced
+522991,acetylcholine,0.7989333271980286,acetylcholine,Traced,Roughly traced
+522992,acetylcholine,0.8497118353843689,acetylcholine,Traced,Roughly traced
+523035,gaba,0.7872945666313171,gaba,Traced,Prelim Roughly traced
+523036,acetylcholine,0.8332177400588989,acetylcholine,Traced,Roughly traced
+523636,gaba,0.8224512934684753,gaba,Traced,Roughly traced
+523776,dopamine,0.5973500609397888,dopamine,Traced,Roughly traced
+523786,acetylcholine,0.9017249941825867,acetylcholine,Traced,Roughly traced
+523788,gaba,0.8804417252540588,gaba,Traced,Roughly traced
+523806,acetylcholine,0.8192635774612427,acetylcholine,Traced,Roughly traced
+523807,acetylcholine,0.8519213199615479,acetylcholine,Traced,Roughly traced
+523816,gaba,0.7466938495635986,gaba,Traced,Roughly traced
+524067,glutamate,0.6153183579444885,glutamate,Traced,Roughly traced
+524068,gaba,0.8147821426391602,gaba,Traced,Prelim Roughly traced
+524073,acetylcholine,0.8894709944725037,acetylcholine,Traced,Roughly traced
+524075,gaba,0.8848787546157837,gaba,Traced,Roughly traced
+524717,acetylcholine,0.8029051423072815,acetylcholine,Traced,Roughly traced
+524761,serotonin,0.6322565674781799,unclear,Traced,Roughly traced
+525062,acetylcholine,0.8791613578796387,acetylcholine,Traced,Roughly traced
+526143,gaba,0.8793360590934753,gaba,Traced,Prelim Roughly traced
+526548,octopamine,0.7418157458305359,octopamine,Traced,Roughly traced
+526552,gaba,0.8946104049682617,gaba,Traced,Prelim Roughly traced
+527150,gaba,0.8050975203514099,gaba,Traced,Roughly traced
+527199,gaba,0.8660324811935425,gaba,Traced,Roughly traced
+527297,gaba,0.7767115235328674,gaba,Traced,Prelim Roughly traced
+527475,serotonin,0.5215306878089905,unclear,Traced,Roughly traced
+527653,gaba,0.864590585231781,gaba,Traced,Prelim Roughly traced
+529142,serotonin,0.629116952419281,acetylcholine,Traced,Prelim Roughly traced
+529207,gaba,0.8238554000854492,gaba,Traced,Roughly traced
+529330,gaba,0.8429166078567505,gaba,Traced,Prelim Roughly traced
+529385,acetylcholine,0.8705523610115051,acetylcholine,Traced,Roughly traced
+529491,glutamate,0.8295168280601501,glutamate,Traced,Roughly traced
+529826,gaba,0.8813467025756836,gaba,Traced,Prelim Roughly traced
+529847,gaba,0.8228469491004944,gaba,Traced,Roughly traced
+530339,gaba,0.797938883304596,gaba,Traced,Prelim Roughly traced
+530800,acetylcholine,0.8197801113128662,acetylcholine,Traced,Prelim Roughly traced
+532637,gaba,0.8502125144004822,gaba,Traced,Roughly traced
+533062,gaba,0.8669130206108093,gaba,Traced,Roughly traced
+533223,glutamate,0.7207220196723938,glutamate,Traced,Prelim Roughly traced
+535347,acetylcholine,0.8685973882675171,acetylcholine,Traced,Roughly traced
+536264,serotonin,0.6865384578704834,acetylcholine,Traced,Prelim Roughly traced
+539226,acetylcholine,0.9223608374595642,acetylcholine,Traced,Prelim Roughly traced
+541755,serotonin,0.5774796605110168,unclear,Traced,Roughly traced
+541855,serotonin,0.745823323726654,acetylcholine,Traced,Prelim Roughly traced
+543506,acetylcholine,0.8716071248054504,acetylcholine,Traced,Roughly traced
+544496,gaba,0.8353864550590515,gaba,Traced,Roughly traced
+555727,acetylcholine,0.9079768061637878,acetylcholine,Traced,Roughly traced
+556300,glutamate,0.8114421963691711,glutamate,Traced,Prelim Roughly traced
+556346,acetylcholine,0.9179993867874146,acetylcholine,Traced,Roughly traced
+556347,acetylcholine,0.9081670045852661,acetylcholine,Traced,Roughly traced
+556700,acetylcholine,0.504511296749115,acetylcholine,Traced,Roughly traced
+565219,unclear,0.6745255589485168,acetylcholine,Traced,Roughly traced
+568471,serotonin,0.6540822982788086,acetylcholine,Traced,Prelim Roughly traced
+568502,gaba,0.7667418122291565,gaba,Traced,Prelim Roughly traced
+575576,unclear,0.8362347483634949,acetylcholine,Traced,Roughly traced
+580329,glutamate,0.6202941536903381,glutamate,Traced,Prelim Roughly traced
+802955,serotonin,0.6525229811668396,unclear,Traced,Prelim Roughly traced
+369423198,unclear,0.8038045167922974,unclear,Orphan,Orphan
+440077947,unclear,0.9154148697853088,unclear,Orphan,Orphan
