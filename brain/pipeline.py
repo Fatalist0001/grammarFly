@@ -12,7 +12,7 @@ class Pipeline:
                  kc_mbon_stdp="single", kc_scope="mbon",
                  tau_el=20 * ms, a_plus=0.01, a_minus=0.01, name="mcns",
                  readout_w=None, readout_thr=0.0,
-                 inh_scale=1.0, **lif_kwargs):
+                 inh_scale=1.0, fb_boost=1.0, kc_kk_scale=1.0, **lif_kwargs):
         self.graph = graph
         self.organ_a = organ_a
         self.organ_b = organ_b
@@ -23,6 +23,8 @@ class Pipeline:
         self.w_in = w_in
         self.w_scale = w_scale
         self.inh_scale = inh_scale
+        self.fb_boost = fb_boost
+        self.kc_kk_scale = kc_kk_scale
         self.plastic = plastic
         self.kc_mbon_plastic = kc_mbon_plastic
         self.readout_w = readout_w
@@ -33,6 +35,7 @@ class Pipeline:
                                    kc_mbon_stdp=kc_mbon_stdp, kc_scope=kc_scope,
                                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
                                    inh_scale=inh_scale,
+                                   fb_boost=fb_boost, kc_kk_scale=kc_kk_scale,
                                    **lif_kwargs)
         if kc_mbon_plastic:
             self.brain, self.mcns_syn_static, self.kc_mbon_syn = build_result
@@ -73,6 +76,10 @@ class Pipeline:
     def reset_weights(self, w_scale):
         self.w_scale = w_scale
         w = self.graph.pairs["weight"].to_numpy() * w_scale
+        if self.kc_kk_scale != 1.0:
+            w[self.graph.kc_kk_mask()] *= self.kc_kk_scale
+        if self.fb_boost != 1.0:
+            w[self.graph.fb_mask()] *= self.fb_boost
         if self.inh_scale != 1.0:
             inh = self.graph.inh_mask()
             w[inh] *= self.inh_scale

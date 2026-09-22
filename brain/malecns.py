@@ -106,17 +106,50 @@ class MaleCNSGraph:
         mask = np.isin(pre_idx, list(kc))
         return self.pairs[mask].reset_index(drop=True)
 
+    def fb_mask(self, to_where=("KC", "MBON")):
+        """Boolean array over self.pairs rows: True if the PRE neuron is an MBON
+        and the POST neuron is in to_where (default: feedback legs MBON->KC and
+        MBON->MBON)."""
+        kc = {i for i, t in enumerate(self.types) if t.startswith(("KCab", "KCg", "KCa"))}
+        mbon = {i for i, t in enumerate(self.types) if t.startswith("MBON")}
+        pre_idx = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
+        post_idx = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
+        is_pre_mbon = np.isin(pre_idx, list(mbon))
+        post_sets = []
+        for w in to_where:
+            if w == "KC":
+                post_sets.append(np.isin(post_idx, list(kc)))
+            elif w == "MBON":
+                post_sets.append(np.isin(post_idx, list(mbon)))
+        is_post = np.logical_or.reduce(post_sets)
+        return is_pre_mbon & is_post
+
+    def kc_kk_mask(self):
+        """Boolean over self.pairs rows: True for KC->KC recurrent pairs."""
+        kc = {i for i, t in enumerate(self.types) if t.startswith(("KCab", "KCg", "KCa"))}
+        pre_idx = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
+        post_idx = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
+        return np.isin(pre_idx, list(kc)) & np.isin(post_idx, list(kc))
+
     def build(self, name="mcns", w_scale=0.001 * nA, plastic=False,
               kc_mbon_plastic=False, kc_mbon_stdp="single",
               kc_scope="mbon",
               tau_el=20 * ms, a_plus=0.01, a_minus=0.01, inh_scale=1.0,
+              fb_boost=1.0, kc_kk_scale=1.0,
               **lif_kwargs):
         pre = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
         post = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
         inh = self.inh_mask()
-        weights = self.pairs["weight"].to_numpy() * w_scale
+        fb = self.fb_mask()
+        kk = self.kc_kk_mask()
+        weight_scale = np.ones(len(self.pairs))
+        if kc_kk_scale != 1.0:
+            weight_scale[kk] *= kc_kk_scale
+        if fb_boost != 1.0:
+            weight_scale[fb] *= fb_boost
         if inh.any():
-            weights[inh] = weights[inh] * inh_scale
+            weight_scale[inh] *= inh_scale
+        weights = self.pairs["weight"].to_numpy() * w_scale * weight_scale
         neurons = make_lif(self.n_neurons, name=name, **lif_kwargs)
 
         if kc_mbon_plastic:
@@ -129,12 +162,19 @@ class MaleCNSGraph:
             kc_post = np.array([self.idx[int(b)] for b in kc_pairs["bodyId_post"]])
             kc_weights = kc_pairs["weight"].to_numpy() * w_scale
 
-            non_kc = self.pairs[~self.pairs.index.isin(kc_pairs.index)]
-            non_pre = np.array([self.idx[int(b)] for b in non_kc["bodyId_pre"]])
-            non_post = np.array([self.idx[int(b)] for b in non_kc["bodyId_post"]])
-            non_weights = non_kc["weight"].to_numpy() * w_scale
-            by_idx = {int(i): v for i, v in zip(pre, inh)}
-            non_inh = np.array([by_idx.get(int(p), False) for p in non_pre], dtype=bool)
+            kc_mask = np.zeros(len(self.pairs), dtype=bool)
+            kc_key = set(zip(kc_pairs["bodyId_pre"], kc_pairs["bodyId_post"]))
+            for r, (b0, b1) in enumerate(zip(self.pairs["bodyId_pre"],
+                                              self.pairs["bodyId_post"])):
+                kc_mask[r] = (int(b0), int(b1)) in kc_key
+            non_mask = ~kc_mask
+            non_pre = pre[non_mask]
+            non_post = post[non_mask]
+            non_weights = (
+                self.pairs["weight"].to_numpy()[non_mask]
+                * w_scale * weight_scale[non_mask]
+            )
+            non_inh = inh[non_mask]
 
             from brain.lif import make_stdp_synapse, make_trace_stdp_synapse
             syn_static = make_synapse(neurons, neurons, non_pre, non_post, non_weights,
