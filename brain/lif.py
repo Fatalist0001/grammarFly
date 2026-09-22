@@ -1,25 +1,48 @@
-from brian2 import NeuronGroup, Synapses, amp, Mohm, ms, mV, nA
+import numpy as np
+from brian2 import NeuronGroup, Synapses, amp, Mohm, ms, mV, nA, volt
 
 
 def make_lif(n, name="neurons", e_l=-70 * mV, v_thresh=-50 * mV,
-             v_reset=-65 * mV, tau_m=10 * ms, tau_syn=2 * ms, R=200 * Mohm):
-    model = (
-        "dv/dt = (e_l - v + R * I) / tau_m : volt\n"
-        "dI/dt = -I / tau_syn : amp"
-    )
-    namespace = {
-        "e_l": e_l,
-        "v_thresh": v_thresh,
-        "v_reset": v_reset,
-        "tau_m": tau_m,
-        "tau_syn": tau_syn,
-        "R": R,
-    }
+             v_reset=-65 * mV, tau_m=10 * ms, tau_syn=2 * ms, R=200 * Mohm,
+             tau_ahp=None, w_ahp=0 * mV):
+    if tau_ahp is not None:
+        model = (
+            "dv/dt = (e_l - v + R * I - u) / tau_m : volt\n"
+            "dI/dt = -I / tau_syn : amp\n"
+            "du/dt = -u / tau_ahp : volt"
+        )
+        threshold = "v > v_thresh"
+        reset = "v = v_reset; I = 0 * amp; u += w_ahp"
+        namespace = {
+            "e_l": e_l,
+            "v_thresh": v_thresh,
+            "v_reset": v_reset,
+            "tau_m": tau_m,
+            "tau_syn": tau_syn,
+            "R": R,
+            "tau_ahp": tau_ahp,
+            "w_ahp": w_ahp,
+        }
+    else:
+        model = (
+            "dv/dt = (e_l - v + R * I) / tau_m : volt\n"
+            "dI/dt = -I / tau_syn : amp"
+        )
+        threshold = "v > v_thresh"
+        reset = "v = v_reset; I = 0 * amp"
+        namespace = {
+            "e_l": e_l,
+            "v_thresh": v_thresh,
+            "v_reset": v_reset,
+            "tau_m": tau_m,
+            "tau_syn": tau_syn,
+            "R": R,
+        }
     group = NeuronGroup(
         n,
         model,
-        threshold="v > v_thresh",
-        reset="v = v_reset; I = 0 * amp",
+        threshold=threshold,
+        reset=reset,
         namespace=namespace,
         method="euler",
         name=name,
@@ -29,14 +52,22 @@ def make_lif(n, name="neurons", e_l=-70 * mV, v_thresh=-50 * mV,
 
 
 def make_synapse(pre, post, source_idx=None, target_idx=None, weights=None,
-                 w=0.1 * nA, p=None, name="S"):
-    syn = Synapses(pre, post, model="w : amp", on_pre="I_post += w", name=name)
+                 w=0.1 * nA, p=None, inh=None, name="S"):
+    if inh is not None:
+        model = "w : amp\nsgn : 1"
+        on_pre = "I_post += w * sgn"
+    else:
+        model = "w : amp"
+        on_pre = "I_post += w"
+    syn = Synapses(pre, post, model=model, on_pre=on_pre, name=name)
     if source_idx is None:
         syn.connect(p=p)
         syn.w = w
     else:
         syn.connect(i=source_idx, j=target_idx)
         syn.w = w if weights is None else weights
+    if inh is not None:
+        syn.sgn = np.where(np.asarray(inh), -1, 1)
     return syn
 
 

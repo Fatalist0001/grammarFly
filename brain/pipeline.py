@@ -1,5 +1,5 @@
 import numpy as np
-from brian2 import Network, SpikeMonitor, Hz, amp, ms, mV, nA
+from brian2 import Network, SpikeMonitor, Hz, amp, ms, mV, nA, volt
 
 from brain.lif import make_synapse
 
@@ -11,7 +11,8 @@ class Pipeline:
                  w_in, w_scale, plastic=False, kc_mbon_plastic=False,
                  kc_mbon_stdp="single", kc_scope="mbon",
                  tau_el=20 * ms, a_plus=0.01, a_minus=0.01, name="mcns",
-                 readout_w=None, readout_thr=0.0):
+                 readout_w=None, readout_thr=0.0,
+                 inh_scale=1.0, **lif_kwargs):
         self.graph = graph
         self.organ_a = organ_a
         self.organ_b = organ_b
@@ -21,6 +22,7 @@ class Pipeline:
         self.out_rej = np.asarray(out_rej)
         self.w_in = w_in
         self.w_scale = w_scale
+        self.inh_scale = inh_scale
         self.plastic = plastic
         self.kc_mbon_plastic = kc_mbon_plastic
         self.readout_w = readout_w
@@ -29,7 +31,9 @@ class Pipeline:
         build_result = graph.build(name=name, w_scale=w_scale,
                                    plastic=plastic, kc_mbon_plastic=kc_mbon_plastic,
                                    kc_mbon_stdp=kc_mbon_stdp, kc_scope=kc_scope,
-                                   tau_el=tau_el, a_plus=a_plus, a_minus=a_minus)
+                                   tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
+                                   inh_scale=inh_scale,
+                                   **lif_kwargs)
         if kc_mbon_plastic:
             self.brain, self.mcns_syn_static, self.kc_mbon_syn = build_result
             self.mcns_syn = self.mcns_syn_static  # backward compat
@@ -68,18 +72,24 @@ class Pipeline:
 
     def reset_weights(self, w_scale):
         self.w_scale = w_scale
+        w = self.graph.pairs["weight"].to_numpy() * w_scale
+        if self.inh_scale != 1.0:
+            inh = self.graph.inh_mask()
+            w[inh] *= self.inh_scale
         if self.kc_mbon_plastic:
-            self.mcns_syn_static.w = self.graph.pairs["weight"].to_numpy() * w_scale
+            self.mcns_syn_static.w = w
             kc_mbon = self.graph.kc_mbon_pairs()
             self.kc_mbon_syn.w = kc_mbon["weight"].to_numpy() * w_scale
         else:
-            self.mcns_syn.w = self.graph.pairs["weight"].to_numpy() * w_scale
+            self.mcns_syn.w = w
 
     def reset_state(self, e_l=-70 * mV):
         self.brain.v = e_l
         self.brain.I = 0 * amp
+        if "u" in self.brain.variables:
+            self.brain.u = 0 * volt
 
-    def present_word(self, word):
+    def present_word(self, word, delay=0 * ms):
         t0 = self.net.t
         organs = {"A": self.organ_a, "B": self.organ_b}
         segments = []
@@ -93,6 +103,8 @@ class Pipeline:
             org.source.rates = org.rate
             self.net.run(count * WINDOW)
             org.source.rates = 0 * Hz
+        if delay > 0 * ms:
+            self.net.run(delay)
         return t0, self.net.t
 
     def read_output(self, t0, t1):
