@@ -13,6 +13,19 @@ class Trainer:
         self.w0 = np.asarray(self.syn.w / nA)
         self.w_min = np.full_like(self.w0, w_min)
         self.w_max = self.w0 * w_max_scale
+        # Per-synapse reward polarity by readout channel of the post neuron
+        post_idx = np.asarray(self.syn.j)
+        if pipe.readout_w is not None:
+            w = np.asarray(pipe.readout_w)
+            n = len(w) // 2
+            p = w[:n] + w[n:]
+            eps = 1e-3 * (np.abs(p).max() + 1e-9)
+            self.post_acc = np.isin(post_idx, np.nonzero(p > eps)[0])
+            self.post_rej = np.isin(post_idx, np.nonzero(p < -eps)[0])
+        else:
+            self.post_acc = np.isin(post_idx, np.asarray(pipe.out_acc))
+            self.post_rej = np.isin(post_idx, np.asarray(pipe.out_rej))
+        self.post_ignore = ~(self.post_acc | self.post_rej)
 
     def present(self, word):
         organs = {"A": self.pipe.organ_a, "B": self.pipe.organ_b}
@@ -49,9 +62,14 @@ class Trainer:
                 t0, t1 = self.pipe.present_word(word)
                 result = self.pipe.read_output(t0, t1)
                 correct = (result == "ACCEPT") == bool(label)
-                reward = 1.0 if correct else -1.0
                 epoch_ok += int(correct)
-                acc_elig += reward * np.asarray(self.syn.elig)
+                goal = 1.0 if label else -1.0
+                # Per-channel reward: ACCEPT/REJECT subdivision plus a global
+                # R-STDP term for synapses outside the readout channels.
+                rv = np.full(len(self.syn.elig), goal)
+                rv[self.post_acc] = goal
+                rv[self.post_rej] = -goal
+                acc_elig += rv * np.asarray(self.syn.elig)
             w = np.asarray(self.syn.w / nA) + self.eta * acc_elig
             np.clip(w, self.w_min, self.w_max, out=w)
             self.syn.w = w * nA

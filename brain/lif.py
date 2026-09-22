@@ -62,3 +62,40 @@ def make_stdp_synapse(pre, post, source_idx, target_idx, weights,
     syn.w = weights
     syn.elig = 0
     return syn
+
+
+def make_trace_stdp_synapse(pre, post, source_idx, target_idx, weights,
+                            tau_el=20 * ms, tau_pre=20 * ms, tau_post=20 * ms,
+                            a_plus=0.01, a_minus=0.01, name="S"):
+    syn = Synapses(
+        pre,
+        post,
+        model=(
+            "w : amp\n"
+            "dx/dt = -x / tau_pre : 1 (clock-driven)\n"
+            "dy/dt = -y / tau_post : 1 (clock-driven)\n"
+            "d elig / dt = -elig / tau_el : 1 (clock-driven)"
+        ),
+        on_pre=(
+            "I_post += w\n"
+            "x += 1\n"
+            "elig += a_minus * y"
+        ),
+        on_post=(
+            "y += 1\n"
+            "elig += a_plus * x"
+        ),
+        namespace={
+            "tau_el": tau_el,
+            "tau_pre": tau_pre,
+            "tau_post": tau_post,
+            "a_plus": a_plus,
+            "a_minus": a_minus,
+        },
+        method="euler",
+        name=name,
+    )
+    syn.connect(i=source_idx, j=target_idx)
+    syn.w = weights
+    syn.elig = 0
+    return syn

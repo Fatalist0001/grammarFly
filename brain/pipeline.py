@@ -8,7 +8,10 @@ WINDOW = 50 * ms
 
 class Pipeline:
     def __init__(self, graph, organ_a, organ_b, in_a, in_b, out_acc, out_rej,
-                 w_in, w_scale, plastic=False, kc_mbon_plastic=False, name="mcns"):
+                 w_in, w_scale, plastic=False, kc_mbon_plastic=False,
+                 kc_mbon_stdp="single", kc_scope="mbon",
+                 tau_el=20 * ms, a_plus=0.01, a_minus=0.01, name="mcns",
+                 readout_w=None, readout_thr=0.0):
         self.graph = graph
         self.organ_a = organ_a
         self.organ_b = organ_b
@@ -20,9 +23,13 @@ class Pipeline:
         self.w_scale = w_scale
         self.plastic = plastic
         self.kc_mbon_plastic = kc_mbon_plastic
+        self.readout_w = readout_w
+        self.readout_thr = readout_thr
 
         build_result = graph.build(name=name, w_scale=w_scale,
-                                   plastic=plastic, kc_mbon_plastic=kc_mbon_plastic)
+                                   plastic=plastic, kc_mbon_plastic=kc_mbon_plastic,
+                                   kc_mbon_stdp=kc_mbon_stdp, kc_scope=kc_scope,
+                                   tau_el=tau_el, a_plus=a_plus, a_minus=a_minus)
         if kc_mbon_plastic:
             self.brain, self.mcns_syn_static, self.kc_mbon_syn = build_result
             self.mcns_syn = self.mcns_syn_static  # backward compat
@@ -89,6 +96,9 @@ class Pipeline:
         return t0, self.net.t
 
     def read_output(self, t0, t1):
+        if self.readout_w is not None:
+            f = self._temporal_features(t0, t1)
+            return "ACCEPT" if f @ self.readout_w > self.readout_thr else "REJECT"
         t = np.asarray(self.mon_brain.t / ms)
         i = self.mon_brain.i
         if len(t) == 0:
@@ -97,6 +107,30 @@ class Pipeline:
         acc = np.isin(i[sel], self.out_acc).sum() / len(self.out_acc)
         rej = np.isin(i[sel], self.out_rej).sum() / len(self.out_rej)
         return "ACCEPT" if acc > rej else "REJECT"
+
+    def _temporal_features(self, t0, t1):
+        t = np.asarray(self.mon_brain.t / ms)
+        i = self.mon_brain.i
+        mid = (t0 / ms + t1 / ms) / 2
+        n = self.brain.N
+        f = np.zeros(2 * n)
+        if len(t) > 0:
+            roi = getattr(self, '_roi', None)
+            if roi is None:
+                if self.readout_w is None:
+                    roi = np.arange(n)
+                else:
+                    roi = np.unique(np.concatenate([
+                        np.nonzero(np.abs(self.readout_w[:n]) > 1e-9)[0],
+                        np.nonzero(np.abs(self.readout_w[n:]) > 1e-9)[0]]))
+                    if len(roi) == 0:
+                        roi = np.arange(n)
+                self._roi = roi
+            for k in roi:
+                sel = i == k
+                f[k] = np.sum(sel & (t >= t0 / ms) & (t < mid))
+                f[n + k] = np.sum(sel & (t >= mid) & (t <= t1 / ms))
+        return f
 
     def rate(self, indices, t0, t1):
         if t1 <= t0:

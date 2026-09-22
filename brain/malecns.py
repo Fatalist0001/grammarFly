@@ -1,6 +1,8 @@
+import os
+
 import numpy as np
 import pandas as pd
-from brian2 import nA
+from brian2 import ms, nA
 
 from brain.lif import make_lif, make_synapse
 
@@ -47,6 +49,12 @@ class MaleCNSGraph:
         return np.array(kc[:n]), np.array(kc[n:2 * n])
 
     def mbon_indices(self):
+        split_csv = f"{self.base_dir}/readout_split.csv"
+        if os.path.exists(split_csv):
+            split = pd.read_csv(split_csv)
+            acc = [self.idx[int(b)] for b in split.query("channel == 'ACCEPT'")["bodyId"]]
+            rej = [self.idx[int(b)] for b in split.query("channel == 'REJECT'")["bodyId"]]
+            return np.array(acc), np.array(rej)
         mbons = sorted(
             (i for i, t in enumerate(self.types) if t.startswith("MBON")),
             key=lambda i: self.types[i],
@@ -64,29 +72,50 @@ class MaleCNSGraph:
         mask = np.isin(pre_idx, list(kc)) & np.isin(post_idx, list(mbon))
         return self.pairs[mask].reset_index(drop=True)
 
-    def build(self, name="mcns", w_scale=0.001 * nA, plastic=False, kc_mbon_plastic=False, **lif_kwargs):
+    def kc_out_pairs(self):
+        kc = {i for i, t in enumerate(self.types) if t.startswith(("KCab", "KCg", "KCa"))}
+        pre_body = self.pairs["bodyId_pre"].to_numpy()
+        pre_idx = np.array([self.idx[b] for b in pre_body])
+        mask = np.isin(pre_idx, list(kc))
+        return self.pairs[mask].reset_index(drop=True)
+
+    def build(self, name="mcns", w_scale=0.001 * nA, plastic=False,
+              kc_mbon_plastic=False, kc_mbon_stdp="single",
+              kc_scope="mbon",
+              tau_el=20 * ms, a_plus=0.01, a_minus=0.01, **lif_kwargs):
         pre = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
         post = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
         weights = self.pairs["weight"].to_numpy() * w_scale
         neurons = make_lif(self.n_neurons, name=name, **lif_kwargs)
 
         if kc_mbon_plastic:
-            # Build static synapses for all non-KC->MBON
-            kc_mbon = self.kc_mbon_pairs()
-            kc_mbon_pre = np.array([self.idx[int(b)] for b in kc_mbon["bodyId_pre"]])
-            kc_mbon_post = np.array([self.idx[int(b)] for b in kc_mbon["bodyId_post"]])
-            kc_mbon_weights = kc_mbon["weight"].to_numpy() * w_scale
+            # Build static synapses for all non-KC-output
+            if kc_scope == "kc_out":
+                kc_pairs = self.kc_out_pairs()
+            else:
+                kc_pairs = self.kc_mbon_pairs()
+            kc_pre = np.array([self.idx[int(b)] for b in kc_pairs["bodyId_pre"]])
+            kc_post = np.array([self.idx[int(b)] for b in kc_pairs["bodyId_post"]])
+            kc_weights = kc_pairs["weight"].to_numpy() * w_scale
 
-            non_kc_mbon = self.pairs[~self.pairs.index.isin(kc_mbon.index)]
-            non_pre = np.array([self.idx[int(b)] for b in non_kc_mbon["bodyId_pre"]])
-            non_post = np.array([self.idx[int(b)] for b in non_kc_mbon["bodyId_post"]])
-            non_weights = non_kc_mbon["weight"].to_numpy() * w_scale
+            non_kc = self.pairs[~self.pairs.index.isin(kc_pairs.index)]
+            non_pre = np.array([self.idx[int(b)] for b in non_kc["bodyId_pre"]])
+            non_post = np.array([self.idx[int(b)] for b in non_kc["bodyId_post"]])
+            non_weights = non_kc["weight"].to_numpy() * w_scale
 
-            from brain.lif import make_stdp_synapse
+            from brain.lif import make_stdp_synapse, make_trace_stdp_synapse
             syn_static = make_synapse(neurons, neurons, non_pre, non_post, non_weights,
                                       name=f"{name}_syn_static")
-            syn_plastic = make_stdp_synapse(neurons, neurons, kc_mbon_pre, kc_mbon_post, kc_mbon_weights,
-                                            name=f"{name}_kc_mbon_plastic")
+            if kc_mbon_stdp == "trace":
+                syn_plastic = make_trace_stdp_synapse(
+                    neurons, neurons, kc_pre, kc_post, kc_weights,
+                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
+                    name=f"{name}_kc_mbon_plastic")
+            else:
+                syn_plastic = make_stdp_synapse(
+                    neurons, neurons, kc_pre, kc_post, kc_weights,
+                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
+                    name=f"{name}_kc_mbon_plastic")
             return neurons, syn_static, syn_plastic
         else:
             if plastic:
