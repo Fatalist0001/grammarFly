@@ -12,7 +12,8 @@ class Pipeline:
                  kc_mbon_stdp="single", kc_scope="mbon",
                  tau_el=20 * ms, a_plus=0.01, a_minus=0.01, name="mcns",
                  readout_w=None, readout_thr=0.0,
-                 inh_scale=1.0, fb_boost=1.0, kc_kk_scale=1.0, **lif_kwargs):
+                 inh_scale=1.0, fb_boost=1.0, kc_kk_scale=1.0, neuron_fn=None,
+                 **lif_kwargs):
         self.graph = graph
         self.organ_a = organ_a
         self.organ_b = organ_b
@@ -36,7 +37,10 @@ class Pipeline:
                                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
                                    inh_scale=inh_scale,
                                    fb_boost=fb_boost, kc_kk_scale=kc_kk_scale,
+                                   neuron_fn=neuron_fn,
                                    **lif_kwargs)
+        self.neuron_fn = neuron_fn
+        self.lif_kwargs = lif_kwargs
         if kc_mbon_plastic:
             self.brain, self.mcns_syn_static, self.kc_mbon_syn = build_result
             self.mcns_syn = self.mcns_syn_static  # backward compat

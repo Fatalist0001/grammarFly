@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from brian2 import ms, nA
 
-from brain.lif import make_lif, make_synapse
+from brain.lif import make_synapse
 
 
 class MaleCNSGraph:
@@ -135,8 +135,7 @@ class MaleCNSGraph:
               kc_mbon_plastic=False, kc_mbon_stdp="single",
               kc_scope="mbon",
               tau_el=20 * ms, a_plus=0.01, a_minus=0.01, inh_scale=1.0,
-              fb_boost=1.0, kc_kk_scale=1.0,
-              **lif_kwargs):
+              fb_boost=1.0, kc_kk_scale=1.0, neuron_fn=None, **lif_kwargs):
         pre = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
         post = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
         inh = self.inh_mask()
@@ -150,7 +149,10 @@ class MaleCNSGraph:
         if inh.any():
             weight_scale[inh] *= inh_scale
         weights = self.pairs["weight"].to_numpy() * w_scale * weight_scale
-        neurons = make_lif(self.n_neurons, name=name, **lif_kwargs)
+        if neuron_fn is None:
+            from brain.lif import make_lif
+            neuron_fn = make_lif
+        neurons = neuron_fn(self.n_neurons, name=name, **lif_kwargs)
 
         if kc_mbon_plastic:
             # Build static synapses for all non-KC-output

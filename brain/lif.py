@@ -2,6 +2,41 @@ import numpy as np
 from brian2 import NeuronGroup, Synapses, amp, Mohm, ms, mV, nA, volt
 
 
+IZ_PRESETS = {
+    "rs": {"a": 0.02, "b": 0.2, "c": -65 * mV, "d": 8.0 * mV},   # regular spiking
+    "ib": {"a": 0.02, "b": 0.2, "c": -55 * mV, "d": 4.0 * mV},   # intrinsically bursting
+    "ch": {"a": 0.02, "b": 0.2, "c": -50 * mV, "d": 2.0 * mV},   # chattering (bistable-ish)
+}
+
+
+def make_izhikevich(n, name="neurons", preset="rs", a=0.02, b=0.2,
+                    c=-65 * mV, d=8.0 * mV, v_peak=30 * mV, tau_syn=2 * ms,
+                    R=200 * Mohm, V_BASE=0.0 * mV):
+    if preset is not None:
+        p = IZ_PRESETS[preset]
+        a, b, c, d = p["a"], p["b"], p["c"], p["d"]
+    model = (
+        "dv/dt = ((0.04 / mV) * v * v + 5.0 * v + 140.0 * mV - u + R * I) "
+        "/ (1.0 * ms) : volt\n"
+        "du/dt = a * (b * v - u) / (1.0 * ms) : volt\n"
+        "dI/dt = -I / tau_syn : amp"
+    )
+    threshold = "v >= v_peak"
+    reset = "v = c; u += d"
+    namespace = {
+        "a": a, "b": b, "c": c, "d": d,
+        "v_peak": v_peak, "tau_syn": tau_syn, "R": R,
+    }
+    group = NeuronGroup(
+        n, model, threshold=threshold, reset=reset, namespace=namespace,
+        method="euler", name=name,
+    )
+    group.v = c + V_BASE
+    group.u = b * (c + V_BASE)
+    group.I = 0 * amp
+    return group
+
+
 def make_lif(n, name="neurons", e_l=-70 * mV, v_thresh=-50 * mV,
              v_reset=-65 * mV, tau_m=10 * ms, tau_syn=2 * ms, R=200 * Mohm,
              tau_ahp=None, w_ahp=0 * mV):
