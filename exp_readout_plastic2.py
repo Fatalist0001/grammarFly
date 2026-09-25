@@ -9,10 +9,13 @@ from brian2 import Hz, ms, nA, start_scope
 from brain.malecns import MaleCNSGraph
 from organs.sensory import SensoryOrgan
 from brain.pipeline import Pipeline
+from brain.parallel import collect_features_parallel
 from brain.training import Trainer
 from grammar.ab import ABGrammar
 
 SEED = 1
+USE_PARALLEL = True
+PARALLEL_PROCS = 6
 
 
 def make_probe(seed):
@@ -57,6 +60,9 @@ def half_features(pipe, t0, t1):
 
 
 def collect_features(pipe, samples):
+    if USE_PARALLEL:
+        return collect_features_parallel(pipe, samples, seed=SEED,
+                                         n_proc=PARALLEL_PROCS)
     F, y = [], []
     for w, l in samples:
         pipe.reset_state()

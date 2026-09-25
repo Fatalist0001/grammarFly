@@ -28,6 +28,11 @@ class Pipeline:
         self.kc_kk_scale = kc_kk_scale
         self.plastic = plastic
         self.kc_mbon_plastic = kc_mbon_plastic
+        self.kc_mbon_stdp = kc_mbon_stdp
+        self.kc_scope = kc_scope
+        self.tau_el = tau_el
+        self.a_plus = a_plus
+        self.a_minus = a_minus
         self.readout_w = readout_w
         self.readout_thr = readout_thr
 
