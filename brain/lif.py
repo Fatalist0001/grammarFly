@@ -165,3 +165,52 @@ def make_trace_stdp_synapse(pre, post, source_idx, target_idx, weights,
     syn.w = weights
     syn.elig = 0
     return syn
+
+
+def make_order_stdp_synapse(pre, post, source_idx, target_idx, weights,
+                            tau_el=20 * ms, tau_pre=20 * ms, tau_post=20 * ms,
+                            tau_slow=200 * ms, a_plus=0.01, a_minus=0.01,
+                            a_plus_slow=None, a_minus_slow=None, name="S"):
+    if a_plus_slow is None:
+        a_plus_slow = a_plus
+    if a_minus_slow is None:
+        a_minus_slow = a_minus
+    syn = Synapses(
+        pre,
+        post,
+        model=(
+            "w : amp\n"
+            "dx_fast/dt = -x_fast / tau_pre : 1 (clock-driven)\n"
+            "dy_fast/dt = -y_fast / tau_post : 1 (clock-driven)\n"
+            "dx_slow/dt = -x_slow / tau_slow : 1 (clock-driven)\n"
+            "dy_slow/dt = -y_slow / tau_slow : 1 (clock-driven)\n"
+            "d elig / dt = -elig / tau_el : 1 (clock-driven)"
+        ),
+        on_pre=(
+            "I_post += w\n"
+            "x_fast += 1\n"
+            "x_slow += 1\n"
+            "elig += a_minus * y_fast + a_minus_slow * y_slow"
+        ),
+        on_post=(
+            "y_fast += 1\n"
+            "y_slow += 1\n"
+            "elig += a_plus * x_fast + a_plus_slow * x_slow"
+        ),
+        namespace={
+            "tau_el": tau_el,
+            "tau_pre": tau_pre,
+            "tau_post": tau_post,
+            "tau_slow": tau_slow,
+            "a_plus": a_plus,
+            "a_minus": a_minus,
+            "a_plus_slow": a_plus_slow,
+            "a_minus_slow": a_minus_slow,
+        },
+        method="euler",
+        name=name,
+    )
+    syn.connect(i=source_idx, j=target_idx)
+    syn.w = weights
+    syn.elig = 0
+    return syn

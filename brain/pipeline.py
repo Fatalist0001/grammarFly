@@ -13,6 +13,8 @@ class Pipeline:
                  tau_el=20 * ms, a_plus=0.01, a_minus=0.01, name="mcns",
                  readout_w=None, readout_thr=0.0,
                  inh_scale=1.0, fb_boost=1.0, kc_kk_scale=1.0, neuron_fn=None,
+                 tau_pre=20 * ms, tau_post=20 * ms, tau_slow=200 * ms,
+                 a_plus_slow=None, a_minus_slow=None,
                  **lif_kwargs):
         self.graph = graph
         self.organ_a = organ_a
@@ -33,6 +35,11 @@ class Pipeline:
         self.tau_el = tau_el
         self.a_plus = a_plus
         self.a_minus = a_minus
+        self.tau_pre = tau_pre
+        self.tau_post = tau_post
+        self.tau_slow = tau_slow
+        self.a_plus_slow = a_plus_slow
+        self.a_minus_slow = a_minus_slow
         self.readout_w = readout_w
         self.readout_thr = readout_thr
 
@@ -40,6 +47,9 @@ class Pipeline:
                                    plastic=plastic, kc_mbon_plastic=kc_mbon_plastic,
                                    kc_mbon_stdp=kc_mbon_stdp, kc_scope=kc_scope,
                                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
+                                   tau_pre=tau_pre, tau_post=tau_post,
+                                   tau_slow=tau_slow, a_plus_slow=a_plus_slow,
+                                   a_minus_slow=a_minus_slow,
                                    inh_scale=inh_scale,
                                    fb_boost=fb_boost, kc_kk_scale=kc_kk_scale,
                                    neuron_fn=neuron_fn,

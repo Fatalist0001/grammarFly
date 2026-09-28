@@ -135,7 +135,9 @@ class MaleCNSGraph:
               kc_mbon_plastic=False, kc_mbon_stdp="single",
               kc_scope="mbon",
               tau_el=20 * ms, a_plus=0.01, a_minus=0.01, inh_scale=1.0,
-              fb_boost=1.0, kc_kk_scale=1.0, neuron_fn=None, **lif_kwargs):
+              fb_boost=1.0, kc_kk_scale=1.0, neuron_fn=None,
+              tau_pre=20 * ms, tau_post=20 * ms, tau_slow=200 * ms,
+              a_plus_slow=None, a_minus_slow=None, **lif_kwargs):
         pre = np.array([self.idx[int(b)] for b in self.pairs["bodyId_pre"]])
         post = np.array([self.idx[int(b)] for b in self.pairs["bodyId_post"]])
         inh = self.inh_mask()
@@ -179,13 +181,22 @@ class MaleCNSGraph:
             non_inh = inh[non_mask]
 
             from brain.lif import make_stdp_synapse, make_trace_stdp_synapse
+            from brain.lif import make_order_stdp_synapse
             syn_static = make_synapse(neurons, neurons, non_pre, non_post, non_weights,
                                       inh=np.asarray(non_inh, dtype=bool),
                                       name=f"{name}_syn_static")
             if kc_mbon_stdp == "trace":
                 syn_plastic = make_trace_stdp_synapse(
                     neurons, neurons, kc_pre, kc_post, kc_weights,
-                    tau_el=tau_el, a_plus=a_plus, a_minus=a_minus,
+                    tau_el=tau_el, tau_pre=tau_pre, tau_post=tau_post,
+                    a_plus=a_plus, a_minus=a_minus,
+                    name=f"{name}_kc_mbon_plastic")
+            elif kc_mbon_stdp == "order":
+                syn_plastic = make_order_stdp_synapse(
+                    neurons, neurons, kc_pre, kc_post, kc_weights,
+                    tau_el=tau_el, tau_pre=tau_pre, tau_post=tau_post,
+                    tau_slow=tau_slow, a_plus=a_plus, a_minus=a_minus,
+                    a_plus_slow=a_plus_slow, a_minus_slow=a_minus_slow,
                     name=f"{name}_kc_mbon_plastic")
             else:
                 syn_plastic = make_stdp_synapse(

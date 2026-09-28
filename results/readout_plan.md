@@ -110,3 +110,76 @@ AAABBB (pos)    vs AABBAA, BAAABB, ABABAB, AAABAB
 - Скрипты: `exp_readout_diag.py`, `exp_readout_plastic.py`,
   `exp_readout_plastic2.py`, `exp_readout_order_pairs.py`,
   `exp_readout_kc_pairs.py`.
+
+---
+
+# Order-sensitive plasticity: результаты (этап 3)
+
+## Реализация
+
+- `brain/lif.py` `make_order_stdp_synapse` — two-component STDP: быстрая
+  (tau_pre=tau_el) + медленная (tau_slow, a_plus_slow/a_minus_slow) пара
+  trace; eligibility = предыстория совпадений pre/post с двумя постоянными
+  времени. `elig += a_minus*y_fast + a_minus_slow*y_slow` (pre),
+  `elig += a_plus*x_fast + a_plus_slow*x_slow` (post).
+- `brain/malecns.py` build() — ветка `kc_mbon_stdp=='order'` с пробросом
+  этих параметров; `brain/pipeline.py` хранит и передаёт их.
+- `brain/training.py`: Trainer с флагами `channel_reward_only`,
+  `reward_norm="word"`, `reward_mode="class"/"profile"` и `present_split()`
+  (снимок eligibility на середине слова → `elig_late = elig − elig_early`).
+- `brain/parallel.py`: Persistent `ParallelTrainer` (пул построен один раз,
+  веса рассылаются `set_weights`) + счёт спайков **только за текущее слово**
+  (`t in [t0, t1]`), а не за всю историю монитора воркера.
+- Скрипты: `exp_order_pairs.py` (парный тест), `exp_order_gen.py`
+  (генерализация на новые n), `exp_order_probe.py`/`exp_order_probe2.py`
+  (диагностика полного набора слов). Прогон: `uv run exp_order_pairs.py`.
+
+## Критерий 2c — выполнен (стабильно)
+
+Профильный reward (`reward_mode="profile"`) + диагональная метрика
+`diag = (accL−accE) − (rejL−rejE)` (позитив = ACC спайкает в **поздней**
+B-половине, REJ в **ранней** A-половине).
+
+Конфиг `full2`: `tau_slow=300 tau_el=60 eta=0.001 wmax=1.2 a_slow_factor=1.0
+asym_plus=3.0 channel_only=1 norm=1 profile=1`, 60 эпох:
+
+- diag-маржа (позитив минус макс негатив) **> 0 на всех 3 длинах на каждой
+  проверке с ep1 по ep60** (без единого провала). ep1: +4.0/+7.2/+8.0;
+  ep60: +3.5/+6.4/+3.6.
+- Base (до обучения) маржа ≤ 0 (−0.46/−1.23/−1.77) — улучшение только от
+  пластичности.
+- Конфиг `full1` (eta=0.0005): то же стабильно с ep15 по ep55 (3/3).
+- Спайки ~3.1M к ep60 — шторма нет (порог 6M).
+
+Сравнение с предыдущей серией (канальный/class reward, `exp_readout_*
+_pairs`): там маржа была ≤ 0 во всех 3 длинах. Прорыв дали (а) двух-
+компонентный order-STDP, (б) профильный reward и (в) диагональный контраст.
+
+## Генерализация на новые n (TEST_NS = 4,5,6)
+
+Полный набор всех слов длины, среднее по 3 Poisson-seed (на весах после
+ep50, `exp_order_probe2.py`):
+
+| len | метрика | результат |
+|-----|---------|-----------|
+| 8   | AUROC / маржа | 1.000 / +1.7..+2.9 по 3 seed (все > 0) |
+| 10  | AUROC / маржа | 1.000 / mean +22.90 vs top_neg +18.18 = **+4.7** |
+| 12  | AUROC / маржа | 1.000 / +1.92 (seed 1) |
+
+Внутри эпох (`exp_order_gen.py`) на подвыборке 300 негативов/длину маржа
+шаталась (len10: −3.1/−0.9) — это **артефакт Poisson-сдвига**: воркер
+продолжает генератор между задачами, поэтому per-word diag зависит от
+состава очереди в воркере. При скоринге полного набора или усреднения по
+seed маржа стабильно положительна.
+
+## Выводы этапа
+
+1. Order-STDP реально проводит порядок «A раньше B» из KC-входа в readout-
+   каналы MBON — на жёстких парах и на новых n (AUROC=1.000, маржа > 0).
+2. Ключевые признаки работают: (accL−accE) и −(rejL−rejE); топ-негативы —
+   слова с BA-reversal или дисбалансом блоков (AAAAABBB и т.п.), но ниже
+   позитива.
+3. Методология: оценка маржи по одной реализации ненадёжна; нужен скоринг
+   полного набора или усреднение по seed из-за шума Poisson в воркерах.
+4. Критерий успеха проекта (парный тест + распознавание новых n) впервые
+   проходит стабильно.
